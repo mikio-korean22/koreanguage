@@ -205,6 +205,10 @@ main .main-contents_question .question_first .beginner_question a .picture {
   cursor: pointer;
 }
 
+main .main-contents_question .question_first .beginner_question a .picture:hover {
+  -webkit-filter: brightness(0.5);
+}
+
 @media (max-width: 549px) {
   main .main-contents_question .question_first .beginner_question a .picture {
     height: 250px;
@@ -246,6 +250,10 @@ main .main-contents_question .question_first .upper_question a .picture {
   height: 200px;
   margin-bottom: 25px;
   cursor: pointer;
+}
+
+main .main-contents_question .question_first .upper_question a .picture:hover {
+  -webkit-filter: brightness(0.5);
 }
 
 @media (max-width: 549px) {
@@ -291,6 +299,10 @@ main .main-contents_question .question_second .intermediate_question a .picture 
   cursor: pointer;
 }
 
+main .main-contents_question .question_second .intermediate_question a .picture:hover {
+  -webkit-filter: brightness(0.5);
+}
+
 @media (max-width: 549px) {
   main .main-contents_question .question_second .intermediate_question a .picture {
     height: 250px;
@@ -332,6 +344,10 @@ main .main-contents_question .question_second .idiom_question a .picture {
   height: 200px;
   margin-bottom: 25px;
   cursor: pointer;
+}
+
+main .main-contents_question .question_second .idiom_question a .picture:hover {
+  -webkit-filter: brightness(0.5);
 }
 
 @media (max-width: 549px) {
@@ -445,6 +461,41 @@ main .main-contents_materials .list-materials .ichiran .each_material .image_mat
   main .main-contents_materials .list-materials .ichiran .each_material .explanation_material {
     margin-top: 20px;
   }
+}
+
+main .main-contents_examination .tab_list {
+  overflow: hidden;
+}
+
+main .main-contents_examination .tab_list li {
+  float: left;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+main .main-contents_examination .tab_list li:not(:first-child) {
+  border-left: none;
+}
+
+main .main-contents_examination .tab_list li.active {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+  cursor: auto;
+}
+
+main .main-contents_examination .article {
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+main .main-contents_examination .article li {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
 }
 
 main .main-contents_examination p {
