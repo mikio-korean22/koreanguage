@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="index.html"><img class="u-max-full-width navbar-brand" src="../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="about.html" class = "nav-link">概要</a></li>
+                    <li class = "nav-item"><a href="question.html" class = "nav-link">問題</a></li>
+                    <li class = "nav-item"><a href="examination.html" class = "nav-link">試験について</a></li>
+                    <li class = "nav-item"><a href="materials.html" class = "nav-link">参考資料</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_examination">
+                    <h2>韓国語の試験</h2>
+                    <p>韓国語の試験には、大きく分けて2種類あります。<br> それぞれの国でもあるとは思いますが、世界的に見て幅広く認知されているのが、
+                        <br> 「TOPIK(韓国語能力試験)」及び「KLAT(韓国語能力評価試験)」の二つです。
+                        <br> どちらとも、韓国政府が認許していますが、より細かく分けるとTOPIKに関しては、国立国際教育院が主管機関が実施しており、
+                        <br> KLATに関しては、財団法人韓国語能力評価院が管理・運営を行っております。
+                        <br> その他にも、いくつか韓国語の試験はございますが、こちらでは主にこの2つの試験について説明させていただきます。
+                    </p>
+
+                    <div id="tabBox">
+                        <div class="tabs">
+                            <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                            <label for="tab1">TOPIK</label>
+                     
+                            <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                            <label for="tab2">KLAT</label>
+                        </div>
+                        <div class="contents">
+                            <div v-if="isActive == '1'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>TOPIK（Test of Proficiency in Korean）は、大韓民国政府（大韓民国教育省国立国際教育院）が実施する 韓国語能力試験です。１９９７年に開始され、現在世界の７０か国以上で一斉に実施され、世界でも最も認知された韓国語試験です。 試験には、それぞれTOPIKⅠとTOPIKⅡがあります。
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>実施機関</td>
+                                                <td colspan="3">大韓民国教育省国立国際教育院</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>実施回数</td>
+                                                <td colspan="3">国外では、年に３回（４月、７月、１０月）<br> 韓国国内では、年に６回
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>試験区分</td>
+                                                <td>１級（初級レベル）、２級</td>
+                                                <td colspan="2">３級、４級、５級、６級(最高難易度)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>試験時間</td>
+                                                <td>入室完了時間：9:20まで<br> 開始時間：10:00
+                                                    <br> 終了時間：11:40
+                                                    <br> 合計試験時間：100分
+                                                </td>
+                                                <td>１次：作文及び聞き取り<br> 入室完了時間：12:20まで
+                                                    <br> 開始時間：13:00
+                                                    <br> 終了時間：14:50
+                                                    <br> 合計試験時間：110分
+                                                </td>
+                                                <td>２次：読解<br> 入室完了時間：15:10まで
+                                                    <br> 開始時間：15:20
+                                                    <br> 終了時間：16:30
+                                                    <br> 合計試験時間：70分
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>合格基準</td>
+                                                <td>１級：８０点以上<br> ２級：１４０点以上
+                                                </td>
+                                                <td colspan="2">３級：１２０点以上<br> ４級：１５０点以上
+                                                    <br> ５級：１９０点以上
+                                                    <br> ６級：２３０点以上
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>諸費用</td>
+                                                <td>４０,０００ウォン<br>（韓国国外の場合、<br>現地の受験料を基準とする）</td>
+                                                <td colspan="2">５５,０００ウォン<br>（韓国国外の場合、<br>現地の受験料を基準とする）</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <p>試験問題に関してましては、それぞれの級で少し異なる部分があります。<br> ＴＯＰＩＫⅡからは、作文問題も追加され、難易度も上がります。
+                                            <br>
+                                            <br> 基本的に、午前と午後で分かれており、併願も可能です。
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>                   
+    
+                                            <tr>
+                                                <td>回答形式</td>
+                                                <td>マークシート方式</td>
+                                                <td colspan="2">作文：記述式<br> 聞き取り：マークシート方式
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>問題文</td>
+                                                <td colspan="3">問題文に関しましては、<br> ＴＯＰＩＫⅠもＴＯＰＩＫⅡもどちらとも
+                                                    <br> 韓国語で出題されます。
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>問題レベル</td>
+                                                <td colspan="2"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>試験を受けられるうえでの注意事項</h2>
+    
+                                        <h3>本人確認の提示</h3>
+                                        <p>試験を受けられる際は、<strong>必ず公的の写真付き身分証明書</strong>が必要となります。<br> 例：パスポート及び運転免許証、外国人登録証等（なお、普段使用されている学生証や社員証などは、認められない場合がございますのでご注意ください。）
+                                            <br>
+                                            <br> また、受験票を紛失された場合には、速やかに事務局へ連絡してください。
+                                            <br>
+    
+                                            <h3>試験で使用不可なもの</h3>
+                                            <p></p>
+    
+                                            <h3>当日配布されるペン</h3>
+                                            <p></p>
+    
+                                            <h3>不正行為</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th>不正行為例</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>例例例例</td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※なお、不正行為を行った場合、以下のような処理がされます。<br></p>
+    
+                                            <h3>その他注意事項</h3>
+                                            <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                            <div v-else-if="isActive == '2'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>KLAT（Korean Language Ability Test）も同様に、韓国語を母語としない学習者を対象とした検定試験の一つですが、それぞれ初級、中級、上級にテストが分かれており、点数ごとに級が異なります。</p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>初級</th>
+                                                <th>中級</th>
+                                                <th>上級</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>実施機関</td>
+                                                <td colspan="3">財団法人韓国語能力評価院</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>実施回数</td>
+                                                <td colspan="3">年に４回程度</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>試験区分</td>
+                                                <td>１級（初級レベル）、２級</td>
+                                                <td>３級、４級</td>
+                                                <td>５級、６級（最高難易度）</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>試験時間</td>
+                                                <td>入室完了時間：9:20まで<br> 開始時間：10:00
+                                                    <br> 終了時間：11:50
+                                                    <br> 合計試験時間：110分
+                                                </td>
+                                                <td>入室完了時間：13:20まで<br> 開始時間：14:00
+                                                    <br>終了時間：16:00
+                                                    <br>合計試験時間：120分
+                                                </td>
+                                                <td>入室完了時間：9:20まで<br> 開始時間：10:00
+                                                    <br>終了時間：12:55
+                                                    <br>合計試験時間：165分
+                                                    <br>休憩時間10分を含む
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>合格基準</td>
+                                                <td>１級：８０点～１３９点<br> ２級：１４０点～２００点
+                                                </td>
+                                                <td>３級：８０点～１３９点<br> ４級：１４０点～２００点</td>
+                                                <td>５級：１５０点～２３９点<br>６級：２４０点～３００点</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>諸費用</td>
+                                                <td colspan="3">４０，０００ウォン（韓国国外の場合、現地の受験料を基準とする）</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>初級</th>
+                                                <th>中級</th>
+                                                <th>上級</th>
+                                            </tr>                      
+    
+                                            <tr>
+                                                <td>回答形式</td>
+                                                <td colspan="2">PBT試験（筆記試験）<br>
+                                                                または、CBT試験（コンピューター試験）</td>
+                                                <td>PBT試験（筆記試験）</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>問題文</td>
+                                                <td colspan="3">問題文に関しましては、<br>全て韓国語で出題されます。
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>問題レベル</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>試験を受けられるうえでの注意事項</h2>
+    
+                                        <h3>本人確認の提示</h3>
+                                        <p>試験を受けられる際は、<strong>必ず公的の写真付き身分証明書</strong>が必要となります。<br> 例：パスポート及び運転免許証、外国人登録証等（なお、普段使用されている学生証や社員証などは、認められない場合がございますのでご注意ください。）
+                                            <br>
+                                            <br> また、受験票を紛失された場合には、速やかに事務局へ連絡してください。
+                                            <br>
+    
+                                            <h3>試験で使用不可なもの</h3>
+                                            <p></p>
+    
+                                            <h3>不正行為</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th>不正行為例</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>例例例例</td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※なお、不正行為を行った場合、以下のような処理がされます。<br></p>
+    
+                                            <h3>その他注意事項</h3>
+                                            <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.kref.or.jp/examination" target="_blank" rel="noopener noreferrer">TOPIK<br>公式サイト</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/jpn/" target="_blank" rel="noopener noreferrer">KLAT<br>公式サイト</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">各種試験概要</div>
+                        <ul class="ichiran">
+                            <li><a href="list.html">TOPIK</a></li>
+                            <li><a href="list.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">資料一覧</div>
+                        <ul class="ichiran">
+                            <li><a href="list.html">TOPIK</a></li>
+                            <li><a href="list.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <img class="u-max-full-width" src="../images/pagetop.png" alt="">
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="about.html" class = "nav-link">概要</a></li>
+                        <li class = "nav-item"><a href="question.html" class = "nav-link">問題</a></li>
+                        <li class = "nav-item"><a href="examination.html" class = "nav-link">試験について</a></li>
+                        <li class = "nav-item"><a href="materials.html" class = "nav-link">参考資料</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        new Vue ({
+            el: '#tabBox',
+            data: {
+                isActive: '1',
+            }
+        })
+    </script>
+</body>
+
+</html>
