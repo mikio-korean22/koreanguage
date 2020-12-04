@@ -139,18 +139,26 @@ main .main-contents_question_page .btn {
   font-size: 30px;
 }
 
-main .main-contents_question_page .main_result li {
+main .main-contents_question_page .main_result ul {
+  margin: 40px 0;
+}
+
+main .main-contents_question_page .main_result ul li {
   font-weight: bold;
   font-size: 15px;
   font-size: 1.5rem;
   list-style: none;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 main .main-contents_question_page .main_result span {
   font-size: 20px;
   font-size: 2rem;
   font-weight: bold;
+}
+
+main .main-contents_question_page .main_result #correct {
+  color: blue;
 }
 
 main .main-contents_question_page .main_result #incorrect {
