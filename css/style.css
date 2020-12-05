@@ -137,6 +137,9 @@ main .main-contents_question_page .card-title {
 
 main .main-contents_question_page .btn {
   font-size: 30px;
+  border-bottom: 1px solid #000;
+  margin-top: 10px;
+  padding: 20px 0;
 }
 
 main .main-contents_question_page .main_result ul {

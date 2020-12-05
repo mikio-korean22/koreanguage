@@ -34,6 +34,16 @@
                     <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
                     <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
                     <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            言語選択
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">英語</a>
+                            <a class="dropdown-item" href="#">韓国語</a>
+                            <a class="dropdown-item" href="#">日本語</a>
+                          </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -87,7 +97,7 @@
                                     <hr>
                                     <button
                                         type="button"
-                                        class="btn btn-primary btn-lg btn-block text-left"
+                                        class="btn btn-block"
                                         v-for="(answer,index) in currentQuestion.answers"
                                         @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
                                 </div>
