@@ -82,7 +82,7 @@
                                         <ul>
                                             <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
                                         </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">正解です</span>
+                                        <span v-if="question.answer == answers[index]" id="correct">正解です<br>正解は{{ question.answers[question.answer] }}です。</span>
                                         <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
                                         <br>
                                         <br>

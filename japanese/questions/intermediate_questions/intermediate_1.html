@@ -34,6 +34,16 @@
                     <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
                     <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
                     <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            言語選択
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">英語</a>
+                            <a class="dropdown-item" href="#">韓国語</a>
+                            <a class="dropdown-item" href="#">日本語</a>
+                          </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -72,7 +82,7 @@
                                         <ul>
                                             <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
                                         </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">正解です</span>
+                                        <span v-if="question.answer == answers[index]" id="correct">正解です<br>正解は{{ question.answers[question.answer] }}です。</span>
                                         <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
                                         <br>
                                         <br>
