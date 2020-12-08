@@ -474,11 +474,14 @@ main .main-contents_examination .tabs input {
 }
 
 main .main-contents_examination .tabs label {
-  width: 120px;
+  padding: 20px;
+  margin: 30px 0 20px 0;
+  width: 150px;
   text-align: center;
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  font-size: 30px;
 }
 
 main .main-contents_examination .tabs input:checked + label,
@@ -496,14 +499,12 @@ main .main-contents_examination .contents {
 @media (max-width: 1024px) {
   main .main-contents_examination .contents {
     font-size: 12px;
-    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 768px) {
   main .main-contents_examination .contents {
-    font-size: 10px;
-    font-size: 1rem;
+    font-size: xx-small;
   }
 }
 
@@ -513,7 +514,33 @@ main .main-contents_examination .contents .tab_contents .tab_contents_item table
 
 main .main-contents_examination .contents .tab_contents .tab_contents_item table td {
   padding: 10px 0;
-  line-height: 20px;
+  line-height: 30px;
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item table .level {
+  float: left;
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item table .example {
+  margin-top: 15px;
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item table .example li {
+  list-style: none;
+  font-size: 13px;
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item .second_table {
+  margin-top: 50px;
+}
+
+main .main-contents_examination .contents .tab_contents h3 {
+  border-bottom: 1px solid #888888;
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  padding-bottom: 10px;
 }
 
 main .main-contents_about .contents_title_about {

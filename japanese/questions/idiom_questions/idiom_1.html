@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../../../images/header/korea-image.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_question_page">
+                    <div id="app" class="row">
+                        <div class = "col-md-12 main_question" v-if="!completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
+                                    <br>
+                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                                    <br>
+                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                                    <hr>
+                                    <button
+                                        type="button"
+                                        class="btn btn-block"
+                                        v-for="(answer,index) in currentQuestion.answers"
+                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class = "col-md-12 main_result" v-if="completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">結果</p>
+                                    <div v-for="(question,index) in this.questions">
+                                        <h4 class="card-title error_color">{{ question.question }}</h4>
+                                        <span>{{ question.question_translation }}</span>
+                                        <ul>
+                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                        </ul>
+                                        <span v-if="question.answer == answers[index]" id="correct">正解です</span>
+                                        <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
+                                        <br>
+                                        <br>
+                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.kref.or.jp/examination" target="_blank" rel="noopener noreferrer">TOPIK<br>公式サイト</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/jpn/" target="_blank" rel="noopener noreferrer">KLAT<br>公式サイト</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">各種試験概要</div>
+                        <ul class="ichiran">
+                            <li><a href="../../examination.html">TOPIK</a></li>
+                            <li><a href="../../examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">資料一覧</div>
+                        <ul class="ichiran">
+                            <li><a href="../../materials.html">TOPIK</a></li>
+                            <li><a href="../../materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <img class="u-max-full-width" src="../../../images/pagetop.png" alt="">
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                answers: [],
+                questionIndex: 0,
+                questions: [
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '미국에 갑니다. 그리고 중국에 갑니다.',
+                        answers: [
+                            '공부',
+                            '전화',
+                            '여행',
+                            '학교'
+                        ],
+                        answer: 2,
+                        question_translation: "韓国へ行きます。そして、中国へ行きます。",
+                        answer_translations: [
+                            "공부：勉強",
+                            "전화：電話",
+                            "여행：旅行",
+                            "학교：学校"
+                        ]
+                    },
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '친구랑 음식을 먹어요.',
+                        answers: [
+                            '약속',
+                            '식당',
+                            '쇼핑',
+                            "약국"
+                        ],
+                        answer: 1,
+                        question_translation: "友だちとご飯を食べます。",
+                        answer_translations: [
+                            '약속：約束',
+                            '식당：食堂',
+                            '쇼핑：ショッピング',
+                            "약국：薬局"
+                        ]
+                    },
+                    {
+                        question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '경기가 나빠서 (      )가 힘들어요？',
+                        answers: [
+                            '가게',
+                            '스포츠',
+                            '운동',
+                            '영화'
+                        ],
+                        answer: 0,
+                        question_translation: "景気が悪くて、（）がしんどいです。",
+                        answer_translations: [
+                            '가게：店',
+                            '스포츠：スポーツ',
+                            '운동：運動',
+                            '영화：映画'
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '한국 드라마는 재미있어서 (       ).',
+                        answers: [
+                            '싫어해요',
+                            '예뻐요',
+                            '맛있어요',
+                            "좋아해요"
+                        ],
+                        answer: 3,
+                        question_translation: "韓国ドラマはおもしろくて、（）。",
+                        answer_translations: [
+                            '싫어해요：嫌いです',
+                            '예뻐요：かわいいです',
+                            '맛있어요：おいしいです',
+                            "좋아해요：好きです"
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '(        )에 돈을 찾으러 갑니다.',
+                        answers: [
+                            '은행',
+                            '편의점',
+                            '슈퍼',
+                            "호주"
+                        ],
+                        answer: 3,
+                        question_translation: "()へお金をおろしに行きます。",
+                        answer_translations: [
+                            '은행：銀行',
+                            '편의점：百貨店、デパート',
+                            '슈퍼：スーパー',
+                            "호주：オーストラリア"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '우리 집에는 강아지가 있어요. 정말 귀엽고 우리 집의 아이돌 같은 존재예요.',
+                        answers: [
+                            '우리 집에는 고양이가 있어요.',
+                            '우리 집에는 개가 있어요.',
+                            '우리 집에는 게가 있어요.',
+                            "우리 집에는 새가 있어요."
+                        ],
+                        answer: 1,
+                        question_translation: "私たちの家には子犬がいます。本当にかわいくて、家のアイドルみたいな存在です。",
+                        answer_translations: [
+                            '우리 집에는 고양이가 있어요.：家には猫がいます。',
+                            '우리 집에는 개가 있어요.；家には犬がいます。',
+                            '우리 집에는 게가 있어요.：家にはカニがいます。',
+                            "우리 집에는 새가 있어요.：家には鳥がいます。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '오늘은 학교에 가서 일본어를 공부할 거예요. 일본어를 공부한후 학원에 가요. 저는 최근 학원에서 영어를 배워요.',
+                        answers: [
+                            '오늘 일본어를 배울 예정이 있어요.',
+                            '오후에 영어를 공부할 거예요.',
+                            '일본어는 조금 어려워요.',
+                            "영어는 공부하기 어려워요."
+                        ],
+                        answer: 0,
+                        question_translation: "今日は学校へ行って、日本語を勉強します。日本語を勉強した後、塾へ行きます。私は最近塾で英語を勉強します。",
+                        answer_translations: [
+                            '오늘 일본어를 배울 예정이 있어요.：今日日本語を学ぶ予定があります。',
+                            '오후에 영어를 공부할 거예요.：午後に英語を勉強します。',
+                            '일본어는 조금 어려워요.：日本語は少し難しいです。',
+                            "영어는 단어가 어려워요.：英語は単語が難しいです。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '친구하고 동네에 놀러 갔어요. 친구는 하얀 가방을 사고 저는 빨간 옷을 샀어요.',
+                        answers: [
+                            '친구와 쇼핑을 하러 갔어요.',
+                            '친구랑 같은 옷을 샀어요.',
+                            '저는 옷을 샀지만 그렇게 좋아하지 않아요.',
+                            "저는 옷을 샀지만 그걸 친구에게 줬어요."
+                        ],
+                        answer: 0,
+                        question_translation: "友だちと町へ遊びに行きます。友だちは白い鞄を買って、私は赤い服を買いました。",
+                        answer_translations: [
+                            '친구와 쇼핑을 하러 갔어요.：友だちとショッピングをしに行きました。',
+                            '친구랑 같은 옷을 샀어요.：友だちと同じ服を買いました。',
+                            '저는 옷을 샀지만 그렇게 좋아하지 않아요.：私は服を買いましたが、そんなに好きじゃないです。',
+                            "저는 옷을 샀지만 그걸 친구에게 줬어요.：私は服を買いましたが、それを友達に上げました。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '여름에는 한날에 2시간쯤 농구를 하도록 해요. 그리고 일주일에 5일 농구를 해요. 하지만 맥주을 많이 먹어서 살 빼지 않아요.',
+                        answers: [
+                            '여름에는 운동을 많이 하지만 겨울에는 안 해요.',
+                            '여름에는 하루 종일 농구를 해요.',
+                            '운동을 하지만 술을 먹기 때문에 살 빼지 않아요.',
+                            "한날에 2시간쯤 농구를 했지만 포기했어요."
+                        ],
+                        answer: 2,
+                        question_translation: "夏には１日に２時間ぐらいバスケットボールをするようにしています。そして、１週間に5日バスケットボールをします。しかし、ビールをたくさん飲んで、痩せません。",
+                        answer_translations: [
+                            '여름에는 운동을 많이 하지만 겨울에는 안 해요.：夏には運動をたくさんしますが、冬にはしません。',
+                            '여름에는 하루 종일 농구를 해요.：夏には１日中バスケットボールをします。',
+                            '운동을 하지만 술을 먹기 때문에 살 빼지 않아요.：運動をしますが、お酒をたくさん飲むため痩せません。',
+                            "한날에 2시간쯤 농구를 했지만 포기했어요.：１日に２時間ぐらいバスケットボールをしましたが、諦めました。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '저는 맨날 학교에서 많이 공부를 해야 돼요. 학교가 끝나도 학원에 가거나 예정이 많이 있어서 괴로워요.',
+                        answers: [
+                            '매일 바쁘지만 재미있어요.',
+                            '학교가 끝나도 학교에서 많이 공부해야 돼요.',
+                            '공부를 많이 해야 되지만 친구랑 많이 놀아요.',
+                            "맨날 해야 하는 게 많이 있어서 힘들어요."
+                        ],
+                        answer: 3,
+                        question_translation: "私は毎日学校でたくさん勉強をしないといけません。。学校が終わっても塾へ行ったり、予定がたくさんあって辛いです。",
+                        answer_translations: [
+                            '매일 바쁘지만 재미있어요.：毎日忙しいですが、楽しいです。',
+                            '학교가 끝나도 그대로 학교에서 많이 공부해야 돼요.：学校が終わってもそのまま学校でたくさん勉強しないといけません。',
+                            '공부를 많이 해야 되지만 친구랑 많이 놀아요.：勉強をたくさんしないといけませんが、友だちとたくさん遊びます。',
+                            "맨날 해야 하는 게 많이 있어서 힘들어요.：毎日しなければならないことがたくさんあって、しんどいです。"
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addAnswer: function(index) {
+
+                    this.answers.push(index);
+
+                    if(!this.completed) {
+
+                        this.questionIndex++;
+
+                    }
+
+                }
+            },
+            computed: {
+                currentQuestion: function() {
+
+                    return this.questions[this.questionIndex];
+
+                },
+                completed: function() {
+
+                    return (this.questions.length == this.answers.length);
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
