@@ -24,7 +24,7 @@ header .navbar {
 
 header .navbar .navbar-brand {
   margin-left: 120px;
-  width: 350px;
+  width: 300px;
 }
 
 @media (max-width: 768px) {
