@@ -67,6 +67,14 @@ header {
                     margin-right: 10px;
                 }
             }
+
+            .dropdown-menu{
+                padding: 20px 30px 30px 30px;
+                a{
+                    font-size: 20px;
+                    margin-top: 10px;
+                }
+            }
         }
     }
 }
@@ -554,11 +562,13 @@ footer{
         @media(max-width: 549px){
             text-align: center;
         }
-        img{
-            width: 100px;
+        p{
+            font-size: 30px;
             float: right;
+            margin-right: 80px;
             @media(max-width: 549px){
                 float: none;
+                margin-right: 0;
             }
             &:hover{
                 cursor: pointer;

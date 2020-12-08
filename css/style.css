@@ -78,6 +78,15 @@ header .navbar .navbar-nav .nav-link {
   }
 }
 
+header .navbar .navbar-nav .dropdown-menu {
+  padding: 20px 30px 30px 30px;
+}
+
+header .navbar .navbar-nav .dropdown-menu a {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 main .owl-theme {
   margin: 0 auto;
   visibility: visible;
@@ -668,18 +677,20 @@ footer {
   }
 }
 
-footer .page-top img {
-  width: 100px;
+footer .page-top p {
+  font-size: 30px;
   float: right;
+  margin-right: 80px;
 }
 
 @media (max-width: 549px) {
-  footer .page-top img {
+  footer .page-top p {
     float: none;
+    margin-right: 0;
   }
 }
 
-footer .page-top img:hover {
+footer .page-top p:hover {
   cursor: pointer;
 }
 
