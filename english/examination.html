@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="index.html"><img class="u-max-full-width navbar-brand" src="../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="about.html" class = "nav-link">About</a></li>
+                    <li class = "nav-item"><a href="question.html" class = "nav-link">Questions</a></li>
+                    <li class = "nav-item"><a href="examination.html" class = "nav-link">Examination</a></li>
+                    <li class = "nav-item"><a href="materials.html" class = "nav-link">References</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="examination.html">English</a>
+                            <a class="dropdown-item" href="../korean/examination.html">Korean</a>
+                            <a class="dropdown-item" href="../japanese/examination.html">Japanese</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/korea-image.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_examination">
+                    <h2>Korean examination</h2>
+                    <p>There are two kinds of Korean proficiency examination.<br> Each country might have original examinations but the exams which are recognized in the world are
+                        <br> "TOPIK(Test of Proficiency in Korean)" and "KLAT(Korean Language Ability Test)".
+                        <br> Both are approved by the Korean government, but in more detail, TOPIK is managed by the National Institute of International Education, 
+                        and KLAT is managed and operated by Korea Educational Testing Service.
+                        <br> In addition, there are some Korean proficiency exams but in this site two of them are mainly explained.
+                    </p>
+
+                    <div id="tabBox">
+                        <div class="tabs">
+                            <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                            <label for="tab1">TOPIK</label>
+                     
+                            <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                            <label for="tab2">KLAT</label>
+                        </div>
+                        <div class="contents">
+                            <div v-if="isActive == '1'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>TOPIK（Test of Proficiency in Korean）is an Korean proficiency exam administered by the National Institute for International Education
+                                            and it has two levels, TOPIKⅠ and TOPIKⅡ.
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Organization</td>
+                                                <td colspan="3">the National Institute for International Education</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Number of times</td>
+                                                <td colspan="3">In the outside of Korean, it's took place 3 times and in Korea 6 times.
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Classification</td>
+                                                <td>Grade 1 (easiest)<br>Grade 2</td>
+                                                <td colspan="2">Grade 3, Grade 4<br>Grade 5, Grade 6 (hardest)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Test time</td>
+                                                <td>Entry time：<br>Until 9:20<br> Start time：<br>10:00
+                                                    <br> Ending time：<br>11:40
+                                                    <br> Total：100 min
+                                                </td>
+                                                <td>the first round of exams：<br>writing, listening<br> Entry time：<br>Until 9:20
+                                                    <br> Start time：<br>13:00
+                                                    <br> Ending time：<br>14:50
+                                                    <br> total：110 min
+                                                </td>
+                                                <td>the second round of exams：reading<br> Entry time：<br>Until 15:10
+                                                    <br> Start time：<br>15:20
+                                                    <br> Ending time：<br>16:30
+                                                    <br> Total：70 min
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Passing score</td>
+                                                <td>Grade 1：more than 80 points<br> Grade 2：more than 140 points
+                                                </td>
+                                                <td colspan="2">Grade 3：more than 130 points<br> Grade 4：more than 150 points
+                                                    <br> Grade 5：more than 190 points
+                                                    <br> Grade 6：more than 230 points
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Fee</td>
+                                                <td>40,000 ₩<br>(In the case of the outside of Korea, it's different according to places where you take)</td>
+                                                <td colspan="2">50,000 ₩<br>(In the case of the outside of Korea, it's different according to places where you take)</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <p>The content of problems is a little bit different according to each level.<br>From TOPIKⅡ, you have to take a writing section and the level of difficulty is much higher than TOPIKⅠ.
+                                            <br>
+                                             The exam is divided into the morning section and the afternoon section and you can take TOPIKⅠ and TOPIKⅡ all to once.
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered second_table">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>                   
+    
+                                            <tr>
+                                                <td>How to answer</td>
+                                                <td>multiple choice</td>
+                                                <td colspan="2">Writing：description type<br> Listening：multiple choice
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>About each question</td>
+                                                <td colspan="3">Each question is written by Korean.
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>The level of questions</td>
+                                                <td colspan="2" style="width: 100px; padding: 20px;">
+                                                    <span class = "level">Grade 1 (beginner)：</span>
+                                                    You can make use of the basic words for daily life, such as self-introduction, shopping, and ordering at restaurants, and understand the contents of familiar topics.<br>
+
+                                                    <span class = "level">Grade 2 (beginner)：</span>
+                                                    You can speak fundamental Korean for daily life, such as taliking on the phone, and in public situations like post offices and banks.<br>
+                                                
+                                                    <span class = "level">Grade 3 (intermediate)：</span>
+                                                    You can live your daily life without any problems, and use various public facilities, and maintain social relationships with native speakers.<br>
+
+                                                    <span class = "level">Grade 4 (intermediate)：</span>
+                                                    You can use public facilities, understand news and newspapers to some extent, speak Korean required for general business.<br>
+
+                                                    <span class = "level">Grade 5 (advanced)：</span>
+                                                    You can speak Korean which is necessary for work in a specialized field without any problems, and understand the specific content such as politics, economy, society.<br>
+
+                                                    <span class = "level">Grade 6 (advanced)：</span>
+                                                    Although not as well as a native speaker, you can fluently speak Korean which is necessary for businesses in your specialized field, and tell your thought.<br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>Cautions</h2>
+    
+                                        <h3>show your identification</h3>
+                                        <p>When you take exams, you will be required to show <strong>your public identification with your photo on it</strong>.<br> Example：passport, driver's license or your alien registration card (there are some cases your student ID or work pass that you often use is not recognized as your public identification)
+                                            <br> <span style="color: red;">If you lose your admission ticket, please contact the secretariat immediately.</span>
+                                            <br>
+    
+                                            <h3>What you can't you in exams</h3>
+                                            <p>Cellphones, tablet devices, voice recorders, dictionaries, cameras<br>
+                                                <span style="color: red;">You can bring a correction tape</span>
+                                                because you will be passed out a pen for TOPIK at the test center and have to mark by it when you take the exam
+                                                
+                                            </p>
+    
+                                            <h3>A pen when you will be passed out</h3>
+                                            <p>You don't need to bring your stationaries.
+                                                You will be distributed a pen for marking on the sheet when you take the exam.
+                                                Also, you can bring a correction tape to correct mistakes.
+                                            </p>
+    
+                                            <h3>About cheating</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th colspan="2">Examples of cheating</th>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%">Simple cheating<br>
+                                                        <ul class="example">
+                                                            <li>have a look at other people's answer</li>
+                                                            <li>have a look at notes you prepared before the test</li>
+                                                            <li>answer questions after the test finishes</li>
+                                                            <li>cases you don't follow the instructions</li>
+                                                            <li>put it on the desk or make use of unnecessary devices</li>
+                                                            <li>take the exam in an illegal way</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td width="50%">Planned and deliberate cheating
+                                                        <ul class = "example">
+                                                            <li>make a contact with those who are in the outside on a test</li>
+                                                            <li>intimidate others and supervisors with violence and high-pressure attitude</li>
+                                                            <li>request a proxy exam and conduct it</li>
+                                                            <li>take advantage of electric devices and share the information on a test</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※ You will be punished as bellow if you cheat on a test<br>
+                                                <ul>
+                                                    <li>no score</li>
+                                                    <li>can't take a test for 2 yeays</li>
+                                                </ul>
+                                            </p>
+    
+                                            <h3>Others</h3>
+                                            <ul>
+                                                <li>You can take a test if you request a refund, and even if you do, it won't be scored.</li>
+                                                <li>You can't enter a room after a test begins. Please take some spare time and come to a test center. </li>
+                                                <li>If you feel unwell or have any other reason, please tell examiners.</li>
+                                                <li>In the case of TOPIKⅡ, you can't take a second round if you are absent from a first round.</li>
+                                                <li>You will be required to leave the classroom if you bother others.</li>
+                                                <li>You will be required to leave the classroom if you don't follow the instructions or cheat.
+                                                    　In that case, you won't be scored and can't take a test for 2 years.</li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                            <div v-else-if="isActive == '2'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>KLAT（Korean Language Ability Test）is one of Korean proficiecy exams for those people who learn Korean as a foreign language but it's classified into beginner, intermediate and advanced level.</p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>Beginner</th>
+                                                <th>Intermediate</th>
+                                                <th>Advanced</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Organization</td>
+                                                <td colspan="3">Korea Educational Testing Service</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Number of times</td>
+                                                <td colspan="3">4 times per a year</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Classification</td>
+                                                <td>Grade 1 (easiest), Grade 2</td>
+                                                <td>Grade 3, Grade 4</td>
+                                                <td>Grade 5, Grade 6 (hardest)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Test time</td>
+                                                <td>Entry time：<br>Until 9:20<br> Start time：<br>10:00
+                                                    <br> Ending time：<br>11:50
+                                                    <br> Total：110 min
+                                                </td>
+                                                <td>Entry time：<br>Until 13:20<br> Start time：<br>14:00
+                                                    <br>Ending time：<br>16:00
+                                                    <br>Total：120 min
+                                                </td>
+                                                <td>Entry time：<br>Until 9:20<br> Start time：<br>10:00
+                                                    <br>Ending time：<br>12:55
+                                                    <br>Total：165 min
+                                                    <br>including a 10 min break
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Passing score</td>
+                                                <td>Grade 1 : 80 points ~ 139 points<br> Grade 2 : 140 points ~ 200 points
+                                                </td>
+                                                <td>Grade 3 : 80 points ~ 139 points<br> Grade 4 : 140 points ~ 200 points</td>
+                                                <td>Grade 5 : 150 points ~ 239 points<br>Grade 6 : 240 points ~ 300 points</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>Fee</td>
+                                                <td colspan="3">40,000 ₩<br>(In the case of the outside of Korea, it's different according to places where you take)</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>Beginner</th>
+                                                <th>Intermediate</th>
+                                                <th>Advanced</th>
+                                            </tr>                      
+    
+                                            <tr>
+                                                <td>How to answer</td>
+                                                <td colspan="2">PBT(Written exam)<br>
+                                                                Or CBT(Computer exam)</td>
+                                                <td>PBT(Written exam)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>About each question</td>
+                                                <td colspan="3">All of questions are asked in Korean.
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>Level of question</td>
+                                                <td colspan = "3" style="width: 100px; padding: 20px;">
+                                                    <span class = "level">Grade 1 (beginner)：</span>
+                                                    Having a simple conversation in daily life by making simple sentences from 800 basic words.<br>
+
+                                                    <span class = "level">Grade 2 (beginner)：</span>
+                                                    Basic communicating in Korean in everyday conversation.<br>
+
+                                                    <span class = "level">Grade 3 (intermediate)：</span>
+                                                    Comprehension of expressions which ofter used in daily life and dealing with various situations.<br>
+
+                                                    <span class = "level">Grade 4 (intermediate)：</span>
+                                                    Taking advantage of a variety of expressions in public situations such as business.<br>
+
+                                                    <span class = "level">Grade 5 (advanced)：</span>
+                                                    Communicating widely with native speakers and ability to express oneself.<br>
+
+                                                    <span class = "level">Grade 6 (advanced)：</span>
+                                                    Ability to communicate freely with the same level as native speakers.<br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>Cautions</h2>
+    
+                                        <h3>show your identification</h3>
+                                        <p>When you take exams, you will be required to show <strong>your public identification with your photo on it</strong>.<br> Example：passport, driver's license or your alien registration card (there are some cases your student ID or work pass that you often use is not recognized as your public identification)
+                                            <br> <span style="color: red;">If you lose your admission ticket, please contact the secretariat immediately.</span>
+                                            <br>
+    
+                                            <h3>Cheating</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th>Examples of cheating</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <ul class="example">
+                                                            <li>requesting a proxy test and conducting it</li>
+                                                            <li>changing an answer sheet and answer on it</li>
+                                                            <li>possessing electric devices such as cellphones, cameras and headsets on a test</li>
+                                                            <li>forging the content of your admission ticket or identification</li>
+                                                            <li>telling or showing your answer to others and having a look at other people's answer</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※ You will be punished as bellow if you cheat on a test<br>
+                                                <ul>
+                                                    <li>No scores and you won't be able to take a test for 3 years</li>
+                                                    <li>If you cheat and are found it, you could be accused</li>
+                                                </ul>
+                                            </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">About each <br>examination</div>
+                        <ul class="ichiran">
+                            <li><a href="examination.html">TOPIK</a></li>
+                            <li><a href="examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">References</div>
+                        <ul class="ichiran">
+                            <li><a href="materials.html">TOPIK</a></li>
+                            <li><a href="materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="about.html" class = "nav-link">About</a></li>
+                        <li class = "nav-item"><a href="question.html" class = "nav-link">Questions</a></li>
+                        <li class = "nav-item"><a href="examination.html" class = "nav-link">Examination</a></li>
+                        <li class = "nav-item"><a href="materials.html" class = "nav-link">References</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../js/question_vue.js">
+        
+    </script>
+</body>
+
+</html>

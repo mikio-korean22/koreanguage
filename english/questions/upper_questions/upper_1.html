@@ -23,25 +23,25 @@
 <body>
     <header class="mb-4">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a href="../../japanese_toppage.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <a href="../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon toggle_icon"></span>
             </button>
       
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
-                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
-                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
-                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">Reference</a></li>
                     <li class = "nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            言語選択
+                            Language
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../../../english/questions/upper_questions/upper_1.html">英語</a>
-                            <a class="dropdown-item" href="../../../korean/questions/upper_questions/upper_1.html">韓国語</a>
-                            <a class="dropdown-item" href="upper_1.html">日本語</a>
+                            <a class="dropdown-item" href="upper_1.html">English</a>
+                            <a class="dropdown-item" href="../../../korean/questions/upper_questions/upper_1.html">Korean</a>
+                            <a class="dropdown-item" href="../../../japanese/questions/upper_questions/upper_1.html">japanese</a>
                           </div>
                     </li>
                 </ul>
@@ -57,7 +57,7 @@
                         <div class = "col-md-12 main_question" v-if="!completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
+                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
                                     <br>
                                     <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
                                     <br>
@@ -75,15 +75,15 @@
                         <div class = "col-md-12 main_result" v-if="completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">結果</p>
+                                    <p class="badge badge-dark">Result</p>
                                     <div v-for="(question,index) in this.questions">
                                         <h4 class="card-title error_color">{{ question.question }}</h4>
                                         <span>{{ question.question_translation }}</span>
                                         <ul>
                                             <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
                                         </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">正解です<br>正解は{{ question.answers[question.answer] }}です。</span>
-                                        <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
+                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
                                         <br>
                                         <br>
                                         
@@ -97,25 +97,25 @@
 
                 <div class="col-md-4 sub">
                     <div class="brochure animated fadeInDown">
-                        <a href="https://www.kref.or.jp/examination" target="_blank" rel="noopener noreferrer">TOPIK<br>公式サイト</a>
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
                     </div>
                     <div class="brochure animated fadeInDown" id="topik">
-                        <a href="http://www.kets.or.kr/jpn/" target="_blank" rel="noopener noreferrer">KLAT<br>公式サイト</a>
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">各種試験概要</div>
+                        <div class="list-title animated fadeInDown">About each <br>examination</div>
                         <ul class="ichiran">
-                            <li><a href="../../examination.html">TOPIK</a></li>
-                            <li><a href="../../examination.html">KLAT</a></li>
+                            <li><a href="examination.html">TOPIK</a></li>
+                            <li><a href="examination.html">KLAT</a></li>
                         </ul>
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">資料一覧</div>
+                        <div class="list-title animated fadeInDown">References</div>
                         <ul class="ichiran">
-                            <li><a href="../../materials.html">TOPIK</a></li>
-                            <li><a href="../../materials.html">KLAT</a></li>
+                            <li><a href="materials.html">TOPIK</a></li>
+                            <li><a href="materials.html">KLAT</a></li>
                         </ul>
                     </div>
 
@@ -133,10 +133,10 @@
                     </div>
                     <div class="footer_nav">
                     <ul>
-                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
-                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
-                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
-                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">References</a></li>
                     </ul>
                     </div>
                 </div>
@@ -165,12 +165,12 @@
                             '과대망상'
                         ],
                         answer: 2,
-                        question_translation: "甘い言葉と有益な条件を掲げた言葉",
+                        question_translation: "Honeyed words and words with useful conditions",
                         answer_translations: [
-                            '구사일생：九死に一生',
-                            '기진맥진：へとへと',
-                            '감언이설：口車',
-                            '과대망상：過大妄想'
+                            '구사일생：to have a narrow escape ',
+                            '기진맥진：exhausted',
+                            '감언이설：flattery, honeyed words',
+                            '과대망상：megalomaniac'
                         ]
                     },
                     {
@@ -183,12 +183,12 @@
                             "백년대계"
                         ],
                         answer: 1,
-                        question_translation: "物を見ると欲しいという欲がうまれるという言葉",
+                        question_translation: "The word that when you see something, you have the desire to want it",
                         answer_translations: [
-                            '명불허전：さすが',
-                            '견물생심：物を見るとよくが湧いてくること（見物生心）',
-                            '무사안일：事なかれ主義',
-                            "백년대계：百年の大計"
+                            "명불허전：live up to one's name",
+                            '견물생심：when you look at things, you get greedy',
+                            '무사안일：to avoid conflicts and troubles',
+                            "백년대계：to make [lay (out)] a grand plan for the long‐term future"
                         ]
                     },
                     {
@@ -201,12 +201,12 @@
                             '밑천'
                         ],
                         answer: 1,
-                        question_translation: "アパートを建設する計画について再検討をするよう（）に乗り出した。",
+                        question_translation: "He set out to () to reconsider his plans to build an apartment.",
                         answer_translations: [
-                            '도랑：溝',
-                            '촉구：催促',
-                            '고비：やま場',
-                            '밑천：元手'
+                            '도랑：groove',
+                            '촉구：urge',
+                            '고비：the climax, the moutain of work',
+                            '밑천：capital'
                         ]
                     },
                     {
@@ -219,12 +219,12 @@
                             "재봉틀"
                         ],
                         answer: 1,
-                        question_translation: "母は、ズボンの（）を伸ばしてくれた",
+                        question_translation: "My mother lengthen ()",
                         answer_translations: [
-                            '주름：しわ',
-                            '기장：丈',
-                            '기름：油',
-                            "재봉틀：ミシン"
+                            '주름：wrinkle',
+                            '기장：the length of pants',
+                            '기름：oil',
+                            "재봉틀：sewing machine"
                         ]
                     },
                     {
@@ -237,12 +237,12 @@
                             "격추하는"
                         ],
                         answer: 0,
-                        question_translation: "都内では特定の外国人を排斥する目的のデモが開かれている",
+                        question_translation: "Demonstrations are being held in Tokyo for the purpose of () specific foreigners",
                         answer_translations: [
-                            '배척하는：排斥する',
-                            '추정하는：推定する',
-                            '출범하는：発足する',
-                            "격추하는：撃墜する"
+                            '배척하는：exclude',
+                            '추정하는：estimate',
+                            '출범하는：set up',
+                            "격추하는：shoot down"
                         ]
                     },
                     {
@@ -255,12 +255,12 @@
                             "그녀를 너무너무 좋아해서 죽겠다."
                         ],
                         answer: 3,
-                        question_translation: "興味がないと言っていたくせに今では、好きすぎてたまらないとうるさい。",
+                        question_translation: "Even though he said he wasn't interested in her, but now always says he loves her to death.",
                         answer_translations: [
-                            '항상 죽고 싶다고 한다.：いつも死にたいと言っている。',
-                            '최근 그녀에 조금만 관심을 가지게 되었다.：最近彼女に少しだけ興味を持つようになった。',
-                            '그녀에 대한 관심은 예나 지금이나 아무것도 안 변했다.：彼女に対する関心は今も昔も変わらない。',
-                            "그녀를 너무너무 좋아해서 죽겠다.：彼女が好きすぎてどうしようもない。"
+                            '항상 죽고 싶다고 한다.：He always says he would like to die.',
+                            '최근 그녀에 조금만 관심을 가지게 되었다.：Recently he has had an interest in her.',
+                            "그녀에 대한 관심은 예나 지금이나 아무것도 안 변했다.：The interest in her hasn't changed.",
+                            "그녀를 너무너무 좋아해서 죽겠다.：It's crazy how much he loves her."
                         ]
                     },
                     {
@@ -273,12 +273,12 @@
                             "올해는 딱히 문제도 없고 평화적인 해였다."
                         ],
                         answer: 0,
-                        question_translation: "色々とあった一年だったが、過ぎてみるとすべて楽しい思い出だった。",
+                        question_translation: "There were a lot of things going on this year, but after a while, all of them were good memories.",
                         answer_translations: [
-                            '여러가지 있어서 바쁜 해였지만 후회는 없다.：いろいろとあって忙しかったが、後悔はない。',
-                            '정말 눈코 뜰 사이 없었지만 다 허사가 되였다.：本当に忙しかったが、すべて無駄に終わった。',
-                            '올해는 말을 많이 타고 즐거운 한 해였다.：今年は、馬にたくさん乗って楽しい一年だった。',
-                            "올해는 딱히 문제도 없고 평화적인 해였다.：今年は、別に問題もなく、平和的な一年だった。"
+                            "여러가지 있어서 바쁜 해였지만 후회는 없다.：There were a lot of things going on and it was busy but I have no regrets.",
+                            '정말 눈코 뜰 사이 없었지만 다 허사가 되였다.：It was so busy and end in vain.',
+                            '올해는 말을 많이 타고 즐거운 한 해였다.：This year it was so fun because I rode a horse many times.',
+                            "올해는 딱히 문제도 없고 평화적인 해였다.：This year it had no troubles and was peaceful."
                         ]
                     },
                     {
@@ -291,12 +291,12 @@
                             "걱정도 많이 있었지만 다 해결되었다."
                         ],
                         answer: 1,
-                        question_translation: "ソウルに言ったら、お父さんに時々連絡しなさいね。心配で夜も寝られないそうよ。",
+                        question_translation: "Contact a dad from time to time after you get to Seoul. He said he's worried and can't sleep well.",
                         answer_translations: [
-                            '아버님은 잠을 설치시는 게 걱정이다 .：お父さんは寝られないことが心配だ。',
-                            '아버님이 걱정하시니까 서울에 도착한지 연락을 좀 할 작정이다.：お父さんが心配しているから、ソウルに到着してから少し連絡するつもりだ。',
-                            '아버님은 걱정하셔서 빈번히 연락을 주신다.：お父さんは心配して、頻繁に連絡をくれる。',
-                            "걱정도 많이 있었지만 다 해결되었다.：心配もたくさんあったが、全て解決した。"
+                            "아버님은 잠을 설치시는 게 걱정이다 .：My dad is worrying about that he can't sleep well.",
+                            "아버님이 걱정하시니까 서울에 도착한지 연락을 좀 할 작정이다.：I will contact my dad after I get to Seoul because he's worrying about me.",
+                            "아버님은 걱정하셔서 빈번히 연락을 주신다.：My dad frequently contacts me because he's worrying about me.",
+                            "걱정도 많이 있었지만 다 해결되었다.：I had a lot of things to be worried but all of them have been solved."
                         ]
                     },
                     {
@@ -309,12 +309,12 @@
                             "학생들은 학업에 대한 정신적인 고통을 받는다."
                         ],
                         answer: 3,
-                        question_translation: "学生たちは若い時から入試競争に追われ、過度な学業のストレスに苦しんでいる。",
+                        question_translation: "Students have been competing for entrance exams since they were young and suffer from excessive stress in school works.",
                         answer_translations: [
-                            '학생들은 입시가 힘들어도 그 생활을 누린다.：学生たちは入試がしんどくても、その生活を楽しんでいる。',
-                            '학생들은 입시 경쟁을 껶고 정신적으로 성장할 수 있다.：学生たちは、入試競争を経験して、精神的に成長することができる。',
-                            '학생들은 입시 경쟁을 통해 정신적으로 훨씬 강하다.：学生たちは入試競争を通じて、精神的に遥かに強くなる。',
-                            "학생들은 학업에 대한 정신적인 고통을 받는다.：学生たちは学業に対する精神的苦痛を受けている。"
+                            '학생들은 입시가 힘들어도 그 생활을 누린다.：Students enjoy their school life even if the entrance exams are hard.',
+                            '학생들은 입시 경쟁을 껶고 정신적으로 성장할 수 있다.：Students experience entrance exams and can mentally grow up.',
+                            '학생들은 입시 경쟁을 통해 정신적으로 훨씬 강하다.：Students get stronger mentally through a competition for entrance exams.',
+                            "학생들은 학업에 대한 정신적인 고통을 받는다.：Students have been suffered mentally from school works."
                         ]
                     },
                     {
@@ -327,12 +327,12 @@
                             "그는 만화에 대해서는 둘째 가라면 서럽다."
                         ],
                         answer: 3,
-                        question_translation: "彼は、マンガとなると目がないマンガマニアだ。",
+                        question_translation: "He is an enthusiastic fan of manga and have a thing for it.",
                         answer_translations: [
-                            '그는 만화를 못 쓰는데 좋아한다.：彼は、マンガは書けないが好きだ。',
-                            '그는 최근 만화에 빠졌다.：彼は最近マンガにはまった。',
-                            '그는 만화는 영 읽지 않다.：彼はマンガを全然読まない。',
-                            "그는 만화에 대해서는 둘째 가라면 서럽다.：彼はマンガについて右に出る者はいない。"
+                            "그는 만화를 못 쓰는데 좋아한다.：He can't draw a manga but likes it.",
+                            '그는 최근 만화에 빠졌다.：Recently he had have an interest in manga.',
+                            "그는 만화는 영 읽지 않다.：He doesn't read manga at all.",
+                            "그는 만화에 대해서는 둘째 가라면 서럽다.：He is second to none in manga."
                         ]
                     }
                 ]
