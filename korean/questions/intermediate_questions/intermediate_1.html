@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -23,24 +23,24 @@
 <body>
     <header class="mb-4">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a href="../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <a href="../../korean_toppage.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon toggle_icon"></span>
             </button>
       
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
-                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
-                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
-                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">Reference</a></li>
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">개요</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">문제</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">시험에 대해</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">참고 자료</a></li>
                     <li class = "nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Language
+                            언어 선택
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="intermediate_1.html">English</a>
-                            <a class="dropdown-item" href="../../../korean/questions/intermediate_questions/intermediate_1.html">Korean</a>
+                            <a class="dropdown-item" href="../../../english/questions/intermediate_questions/intermediate_1.html">English</a>
+                            <a class="dropdown-item" href="beginner_1.html">Korean</a>
                             <a class="dropdown-item" href="../../../japanese/questions/intermediate_questions/intermediate_1.html">japanese</a>
                           </div>
                     </li>
@@ -57,7 +57,7 @@
                         <div class = "col-md-12 main_question" v-if="!completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
+                                    <p class="badge badge-dark">문제 {{ (questionIndex+1) }} </p>
                                     <br>
                                     <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
                                     <br>
@@ -75,15 +75,14 @@
                         <div class = "col-md-12 main_result" v-if="completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">Result</p>
+                                    <p class="badge badge-dark">결과</p>
                                     <div v-for="(question,index) in this.questions">
                                         <h4 class="card-title error_color">{{ question.question }}</h4>
-                                        <span>{{ question.question_translation }}</span>
                                         <ul>
-                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                            <li v-for="answer in question.answers">{{ answer }}</li>
                                         </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
-                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <span v-if="question.answer == answers[index]" id="correct">정답입니다<br>정답은 {{ question.answers[question.answer] }} 입니다.</span>
+                                        <span v-else id="incorrect">오답입니다<br>정답은 {{ question.answers[question.answer] }} 입니다.</span>
                                         <br>
                                         <br>
                                         
@@ -97,14 +96,14 @@
 
                 <div class="col-md-4 sub">
                     <div class="brochure animated fadeInDown">
-                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>홈페이지</a>
                     </div>
                     <div class="brochure animated fadeInDown" id="topik">
-                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>홈페이지</a>
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">About each <br>examination</div>
+                        <div class="list-title animated fadeInDown">시험에 대해</div>
                         <ul class="ichiran">
                             <li><a href="../../examination.html">TOPIK</a></li>
                             <li><a href="../../examination.html">KLAT</a></li>
@@ -112,7 +111,7 @@
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">References</div>
+                        <div class="list-title animated fadeInDown">참고 자료</div>
                         <ul class="ichiran">
                             <li><a href="../../materials.html">TOPIK</a></li>
                             <li><a href="../../materials.html">KLAT</a></li>
@@ -133,10 +132,10 @@
                     </div>
                     <div class="footer_nav">
                     <ul>
-                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
-                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
-                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
-                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">References</a></li>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">개요</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">문제</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">시험에 대해</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">참고 자료</a></li>
                     </ul>
                     </div>
                 </div>
@@ -165,12 +164,12 @@
                             '서류'
                         ],
                         answer: 1,
-                        question_translation: "It seems to be more interesting if we would dance to the rythm.",
+                        question_translation: "みんなで一緒にリズムを合わせながら、ダンスをしたらもっと楽しそうですね。",
                         answer_translations: [
-                            '비서：secretary',
-                            '음악：music',
-                            '불꽃：spark',
-                            '서류：document'
+                            '비서：秘書',
+                            '음악：音楽',
+                            '불꽃：火花',
+                            '서류：書類'
                         ]
                     },
                     {
@@ -183,12 +182,12 @@
                             "총장"
                         ],
                         answer: 0,
-                        question_translation: "I like it because it's famous for the symbol of peace.",
+                        question_translation: "平和の象徴として有名で私は好きです。。",
                         answer_translations: [
-                            '비둘기：pigeon',
-                            '조상：ancestor',
-                            '용돈：pocket money',
-                            "총장：chief, general"
+                            '비둘기：ハト',
+                            '조상：先祖',
+                            '용돈：お小遣い',
+                            "총장：総長"
                         ]
                     },
                     {
@@ -201,12 +200,12 @@
                             '만일'
                         ],
                         answer: 3,
-                        question_translation: "（）you get trobles, please contact me imediately.",
+                        question_translation: "（）困ったことがあれば、すぐに私にに連絡してくださいね",
                         answer_translations: [
-                            '간신히：narrowly',
-                            '설사：even if',
-                            '자세히：in detail',
-                            '만일：if'
+                            '간신히：辛うじて',
+                            '설사：仮に、例え',
+                            '자세히：詳しく',
+                            '만일：万一、もしも'
                         ]
                     },
                     {
@@ -219,12 +218,12 @@
                             "상"
                         ],
                         answer: 3,
-                        question_translation: "I heard he got a () as a representative of graduate.",
+                        question_translation: "彼は卒業生代表として（）をもらったそうですよ",
                         answer_translations: [
-                            '강：river',
-                            '땅：land',
-                            '왕：king',
-                            "상：award"
+                            '강：川',
+                            '땅：土地',
+                            '왕：王',
+                            "상：賞"
                         ]
                     },
                     {
@@ -237,12 +236,12 @@
                             "적당해서"
                         ],
                         answer: 2,
-                        question_translation: "I was so () that tears rolled down.",
+                        question_translation: "あまりにも（）だからか、涙が出ました。",
                         answer_translations: [
-                            '거만해서：arrogant',
-                            '억울해서：regretful',
-                            '유연해서：flexible',
-                            "적당해서：adequate"
+                            '거만해서：傲慢で',
+                            '억울해서：悔しくて',
+                            '유연해서：柔軟で',
+                            "적당해서：適当で"
                         ]
                     },
                     {
@@ -255,12 +254,12 @@
                             "과학은 어렵지만 재미있다."
                         ],
                         answer: 2,
-                        question_translation: "I took interest in science when I was a high school girl. I want to make something wonderful for people someday.",
+                        question_translation: "私は女子高生の頃に科学が好きになった。いつか人のための素晴らしいものを作ってみたい。",
                         answer_translations: [
-                            "중학생 시절부터 과학을 좋아한다.：I've had an interest in science since I was in junior high school.",
-                            "뭐가 있어도 과학자가 될 꿈은 포기 하지 않는다.：I'll never give up to become a scientist no matter what.",
-                            '난 장례 사람의 도움이 될 발명을 하고 싶다.：I want to invent something to be useful for people in the future.',
-                            "과학은 어렵지만 재미있다.：Science is difficult but fun."
+                            '중학생 시절부터 과학을 좋아한다.：中学生の頃から科学が好きだ',
+                            '뭐가 있어도 과학자가 될 꿈은 포기 하지 않는다.：何があっても科学者になるという夢はあきらめない',
+                            '난 장례 사람의 도움이 될 발명을 하고 싶다.：私は将来人の役に立つ発明をしたい。',
+                            "과학은 어렵지만 재미있다.：科学は難しいが、楽しい。"
                         ]
                     },
                     {
@@ -273,12 +272,12 @@
                             "연습하면 누구나 잘 애기할 수 있게 될 것이다."
                         ],
                         answer: 1,
-                        question_translation: "Everyone gets nervous to talk in front of a lot of people. The facial expression becomes stiff and we can't put into words well.",
+                        question_translation: "人がたくさんいる前で話をすることは誰でも緊張する。表情が硬くなり、言葉もうまく出ないことがある。",
                         answer_translations: [
-                            '사람 앞에서는 표정은 무서워지지만 제대로 얘기할 수 있다.：We get stiff in front of people but can talk well.',
-                            '사람 앞에서는 누구든지 떨린다.：Everyone gets nervous in front of people.',
-                            '사람 앞에서는 문제없이 얘기할 수 있어야 된다.：We must be able to talk well in front of people.',
-                            "연습하면 누구나 잘 애기할 수 있게 될 것이다.：If you practice, no one won't be able to speak well."
+                            '사람 앞에서는 표정은 무서워지지만 제대로 얘기할 수 있다.：人前では表情が表情が怖くなるが、ちゃんと話すことができる。',
+                            '사람 앞에서는 누구든지 떨린다.：人前では誰でも緊張する。',
+                            '사람 앞에서는 문제없이 얘기할 수 있어야 된다.：人前では問題なく話すことができなければならない。',
+                            "연습하면 누구나 잘 애기할 수 있게 될 것이다.：練習すればだれでもうまく話せるようになる。"
                         ]
                     },
                     {
@@ -291,12 +290,12 @@
                             "노력해도 할 수 없는 것도 있다."
                         ],
                         answer: 0,
-                        question_translation: "If you work hard every day, your dream will come true.",
+                        question_translation: "毎日汗を流しながら努力すれば、夢は叶うだろう。",
                         answer_translations: [
-                            '꿈을 이루기 위해서는 많이 노력해야 해요.：You have to work hard so that your dream comes true.',
-                            '땀이 많이 나오면 꿈이 이루어질 거예요.：If you sweat a lot, your dreams will come true.',
-                            '꿈을 이루기 위해서는 땀이 중요한다.：Sweat is important to make your dream come true.',
-                            "노력해도 할 수 없는 것도 있다.：There are something you can't do even if you make an effort."
+                            '꿈을 이루기 위해서는 많이 노력해야 해요.：夢を叶う得るためにはたくさん努力をしなければならない。',
+                            '땀이 많이 나오면 꿈이 이루어질 거예요.：汗がたくさん出れば、夢はかなうだろう。',
+                            '꿈을 이루기 위해서는 땀이 중요한다.：夢を叶えるためには、汗が重要だ。',
+                            "노력해도 할 수 없는 것도 있다.：努力してもできなこともある。"
                         ]
                     },
                     {
@@ -309,12 +308,12 @@
                             "인생에서는 혼자서 정해야 할 것도 있다."
                         ],
                         answer: 3,
-                        question_translation: "There are many things in life that you have to make your own decisions.",
+                        question_translation: "人生においては、色々自分自身で決心しなければいけないことがある。",
                         answer_translations: [
-                            '인생에서는 여러가지 상담을 해야 할 것도 있다.：There are many things in life that you have to consult.',
-                            '인생에서는 걱정되는 게 많이 있다.：There are many things in life that you will become worried.',
-                            '인생에서는 해내야 할 것도 많이 있다.：There are many things in life that you have to make an achieve.',
-                            "인생에서는 혼자서 정해야 할 것도 있다.：There are many things in life that you have to decide in yourself."
+                            '인생에서는 여러가지 상담을 해야 할 것도 있다.：人生においては、色々相談をしなければならないこともある。',
+                            '인생에서는 걱정되는 게 많이 있다.：人生においては、心配になることがたくさんある。',
+                            '인생에서는 해내야 할 것도 많이 있다.：人生においては成し遂げなければならないこともたくさんある。',
+                            "인생에서는 혼자서 정해야 할 것도 있다.：人生においては一人で決めなければならないこともある。"
                         ]
                     },
                     {
@@ -327,12 +326,12 @@
                             "우리 아들은 착해서 항상 집안을 도와 줘요."
                         ],
                         answer: 0,
-                        question_translation: "My son started helping with houseworks as if he had changed his mind",
+                        question_translation: "息子は、心を入れ替えたように家事を手伝ってくれ始めました",
                         answer_translations: [
-                            "우리 아들은 좀 전까지는 아무것도 도와 주지 않았어요.：My son didn't help me anything until a while ago.",
-                            '우리 아들은 부탁하면 집안을 도와 줘요.：My son will help me with houseworks if I ask him.',
-                            '우리 아들은 마음을 담고 집안을 도와 줬어요.：My son wholeheartedly helped with houseworks.',
-                            "우리 아들은 착해서 항상 집안을 도와 줘요.：My son is kind and always help with houseworks."
+                            '우리 아들은 좀 전까지는 아무것도 도와 주지 않았어요.：息子は、ちょっと前までは何も手伝ってくれませんでした。',
+                            '우리 아들은 부탁하면 집안을 도와 줘요.：息子は、お願いをすれば家事を手伝ってくれます。',
+                            '우리 아들은 마음을 담고 집안을 도와 줬어요.：息子は、心を込めて家事を手伝ってくれました。',
+                            "우리 아들은 착해서 항상 집안을 도와 줘요.：息子は、親切でいつも家事を手伝ってくれます。"
                         ]
                     }
                 ]
