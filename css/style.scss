@@ -24,7 +24,6 @@ html {
 }
 
 
-
 header {
     
     .navbar{
@@ -83,6 +82,7 @@ main {
     .owl-theme {
         margin: 0 auto;
         visibility: visible;
+        border: 1px solid #000;
         @media(max-width: 549px) {
             width: 100%;
         }

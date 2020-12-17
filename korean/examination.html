@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="korean_toppage.html"><img class="u-max-full-width navbar-brand" src="../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="about.html" class = "nav-link">개요</a></li>
+                    <li class = "nav-item"><a href="question.html" class = "nav-link">문제</a></li>
+                    <li class = "nav-item"><a href="examination.html" class = "nav-link">시험에 대해</a></li>
+                    <li class = "nav-item"><a href="materials.html" class = "nav-link">참고 자료</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            언어 선택
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../english/examination.html">영어</a>
+                            <a class="dropdown-item" href="examination.html">한국어</a>
+                            <a class="dropdown-item" href="../japanese/examination.html">일본어</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div>
+                            <video src="../images/header/question_image.mp4" loop autoplay muted style="width: 1000px;"></video>
+                        </div>
+
+                        <div>
+                            <video src="../images/header/question_image2.mp4" loop autoplay muted style="width: 1000px;"></video>
+                        </div>
+
+                        <div>
+                            <video src="../images/header/question_image3.mp4" loop autoplay muted style="width: 1000px;"></video>
+                        </div>
+
+                        <div>
+                            <img class="u-max-full-width" src="../images/header/question_image4.jpg" alt="">
+                        </div>
+
+                        <div>
+                            <video src="../images/header/question_image5.mp4" loop autoplay muted style="width: 1000px;"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_examination">
+                    <h2>한국어 시험</h2>
+                    <p>한국어 시험에는 2 종류 있습니다.<br> 각 나라에도 독자적인 시험이 있을지도 모릅니다만 세계적으로 폭넓게 인지되어 있는 게 TOPIK(한국어 능력 시험)과 KLAT(한국어 능력 평가 시험) 2 개입니다.
+                        <br> 이들은 한국 정부에 인허되어 있습니다만 더 자세히 구분하면 TOPIK는 국립 국제 교육원이 관리하고 있으며 KLAT는 한국어 능력 평가원이 관리, 운영하고 있습니다.
+                        <br> 그 밖에도 한국어 시험은 몇 개나 있습니다만 여기서는 주로 이들 시험에 대해 설명하겠습니다.
+                    </p>
+
+                    <div id="tabBox">
+                        <div class="tabs">
+                            <input type="radio" value="1" id="tab1" v-model="isActive"></input>
+                            <label for="tab1">TOPIK</label>
+                     
+                            <input type="radio" value="2" id="tab2" v-model="isActive"></input>
+                            <label for="tab2">KLAT</label>
+                        </div>
+                        <div class="contents">
+                            <div v-if="isActive == '1'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>TOPIK (Test of Proficiency in Korean)은 대한민국 정부 (대한민국 교육부 국립 국제 교육원)가 실시하는 한국어 능력 시험입니다.
+                                            1997 년에 시작되어 현재 세계 70 개국에서 일제히 실시 된 세계에서 가장 인정 된 한국어 시험입니다.
+                                            시험은 각각 TOPIKⅠ과 TOPIKⅡ가 있습니다.
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>실시 기관</td>
+                                                <td colspan="3">대한민국 교육부 국립 국제 교육원</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>실시 횟수</td>
+                                                <td colspan="3">국외에서는 한 해에 3번(4월, 7월, 10월)<br>한국 국내에서는 한 해에 6 번
+                                            </tr>
+    
+                                            <tr>
+                                                <td>시험 구분</td>
+                                                <td>1급(초급 레벨)<br>2급</td>
+                                                <td colspan="2">3급, 4급<br>5급, 6급(최고 난이도)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>시험 시간</td>
+                                                <td>입실 시간：<br>9:20까지<br> 개시 시간：<br>10:00
+                                                    <br> 종료 시간：<br>11:40
+                                                    <br> 총：100분
+                                                </td>
+                                                <td>１차：<br>작문, 듣기<br> 입실 시간：<br>12:20까지
+                                                    <br> 개시 시간：<br>13:00
+                                                    <br> 종료 시간：<br>14:50
+                                                    <br> 총：110분
+                                                </td>
+                                                <td>２차：읽기<br> 입실 시간：<br>15:10까지
+                                                    <br> 개시 시간：<br>15:20
+                                                    <br> 종료 시간：<br>16:30
+                                                    <br> 총：70분
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>합격 기준</td>
+                                                <td>1급：80점 이상<br> 2급：140점 이상
+                                                </td>
+                                                <td colspan="2">3급：120점 이상<br> 4급：150점 이상
+                                                    <br> 5급：190점 이상
+                                                    <br> 6급：230점 이상
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>비용</td>
+                                                <td>40,000원<br>(한국 국외 경우는<br>현지 수험료가 기준)</td>
+                                                <td colspan="2">55,000원<br>(한국 국외 경우는<br>현지 수험료가 기준)</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <p>시험 문제에 대해 하물며는 각 급에서 조금 다른 부분이 있습니다. <br> TOPIKⅡ에서는 작문 문제도 추가되어 난이도도 높아집니다.
+                                            <br>
+                                             기본적으로 오전과 오후로 나누며 복수 지원도 가능합니다.
+                                        </p>
+                                        <table class="table table-hover table-sm table-bordered second_table">
+                                            <tr>
+                                                <th></th>
+                                                <th>TOPIK I</th>
+                                                <th colspan="2">TOPIK II</th>
+                                            </tr>                   
+    
+                                            <tr>
+                                                <td>형식</td>
+                                                    <td> 마크 시트 방식 </td>
+                                                    <td colspan = "2"> 작문:주관식 <br> 듣기:마크 시트 방식
+                                                    </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>문제</td>
+                                                <td colspan="3">문제에 관에서는<br> TOPIK I도 TOPIK II도 
+                                                    <br> 한국어로 출제됩니다.
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>문제 레벨</td>
+                                                <td colspan="2" style="width: 100px; padding: 20px;">
+                                                    <span class = "level">1급(초급)：</span>
+                                                    자기 소개, 쇼핑, 음식점에서의 주문 등 생활에 필요한 기초적인 언어를 구사할 수 있어 친밀한 화제의 내용을 이해가 가능하다.<br>
+
+                                                    <span class = "level">2급(초급)：</span>
+                                                    전화나 부탁 정도의 일상 생활에 필요한 언어나, 우체국, 은행 등 공공 기관에서의 대화를 할 수 있다.<br>
+                                                
+                                                    <span class = "level">3급(중급)：</span>
+                                                    일상 생활을 문제없이 지낼 수 있으며 다양한 공공 시설의 이용과 사회적 관계를 유지가 가능하다.<br>
+
+                                                    <span class = "level">4급(중급)：</span>
+                                                    공공 시설의 이용이 가능하며 뉴스나 신문을 어느 정도 이해할 수 있어 일반 업무에 필요한 한국어 사용이 가능하다.<br>
+
+                                                    <span class = "level">5급(고급)：</span>
+                                                    전문 분야의 업무에 필요한 한국어를 문제없이 사용할 수 있으며 정치, 경제, 사회 등의 내용을 이해 할 수있다.<br>
+
+                                                    <span class = "level">6급(고급)：</span>
+                                                    원어민 정도가 아니지만, 전문 분야의 업무 수행에 필요한 한국어를 유창하게 사용할 수 있으며, 자기 표현도 가능하다.<br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>시험에 대한 주의 사항</h2>
+    
+                                        <h3>본인 확인 제시</h3>
+                                        <p>시험을 볼 때 <strong> 반드시 공적 사진이 부착 된 신분증</strong>이 필요합니다. <br> 예:여권과 운전 면허증, 외국인 등록증 등 (또한 자주 사용되는 학생증이나 사원증 등은 인정되지 않는 경우가 있으므로 주의하시기 바랍니다.)
+                                            <br>
+                                            또한 수험표를 분실 한 경우에는 즉시 사무국에 연락하십시오.</p>
+    
+                                            <h3>시험에 사용할 수없는 것</h3>
+                                            <p>휴대 전화, 태블릿, 보이스 레코더, 사전류 카메라 <br>
+                                                또한 TOPIK에 대해서는 시험을 볼 때, 시험 장소에 전용 펜이 배포되기 때문에 그것을 사용하게 되므로
+                                                <span style = "color : red;"> 수정 테이프도 지참하는 것을 추청합니다.</span>
+                                            </p>
+    
+                                            <h3>배포되는 펜</h3>
+                                            <p>TOPIK 관해서는 필기 도구는 필요 없습니다.
+                                                시험을 볼 경우에는 전용 마커 펜이 수험자에게 배포될 것입니다.
+                                                또한 지참물에는 마크를 수정하는 수정 테이프 사용이 가능하므로 지참하는 것을 추청합니다.
+                                            </p>
+    
+                                            <h3>부정 행위</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th colspan="2">부정 행위 예</th>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%">단순 부정 행위<br>
+                                                        <ul class="example">
+                                                            <li>다른 사람에게 답을 보여 주거나 보는 행위</li>
+                                                            <li>시험 전에 준비한 메모를 본다 행위</li>
+                                                            <li>시험 시간 종료 후 답하는 행위</li>
+                                                            <li>감독관의 지시에 따르지 않는 행위</li>
+                                                            <li>불필요한 것을 책상에 두거나 사용하는 행위</li>
+                                                            <li>기타 법률적으로 허용되지 않는 방법으로 수험하는 행위</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td width="50%">계획적이고 의도적인 부정 행위
+                                                        <ul class = "example">
+                                                            <li>부정하게 휴대물을 보거나 또는 사용하는 행위</li>
+                                                            <li>시험 중에 내부 또는 외부 사람과 연락</li>
+                                                            <li>폭력 또한 고압적인 태도로 타인이나 감독관을 위협하는 행위</li>
+                                                            <li>대리 시험을 의뢰해 시험을 번는 행위</li>
+                                                            <li>전자 기기를 조직적으로 사용하여 정보를 공유하는 행위</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※부정 행위를 한 경우 다음과 같은 처리가　됩니다.<br>
+                                                <ul>
+                                                    <li>채점하지 않고 무효 처리</li>
+                                                    <li>2 년간 응시 자격 제한</li>
+                                                    <li>단체 시험의 경우 소속 기관에 부정 행위 적발을 통지</li>
+                                                </ul>
+                                            </p>
+    
+                                            <h3>기타 주의 사항</h3>
+                                            <ul>
+                                                <li>환불 신청을 하신 분은 응시할 수 없으며 응시해도 채점 처리되지 않습니다.</li>
+                                                <li>시험 시작 후는 입실 할 수 없습니다. 지각하지 않도록 시간에 여유를 가지고 회장에 오세요.</li>
+                                                <li>몸 상태가 나쁘거나 기타 이유가 있는 경우는 시험 감독관에게 신청 해주십시오.</li>
+                                                <li>TOPIKⅡ의 경우 1 교시 결석자는 2 교시 입실 할 수 없습니다.</li>
+                                                <li>주위 응시자에게 불편을 주는 행위를 하는 경우 퇴실을 부탁을 가능성이 있습니다.</li>
+                                                <li>시험 감독관과 직원의 지시에 따르지 않거나 부정 행위를 한 분은 퇴실시킬 것입니다.
+                                                    그리고 채점되지 않고 악질적인 경우는 2 년간 응시 자격을 제한합니다.</li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                            <div v-else-if="isActive == '2'" style="list-style: none;">
+                                <div class="tab_contents">
+                                    <div class="tab_contents_item">
+                                        <p>KLAT (Korean Language Ability Test)도 마찬가지로 한국어를 모국어로하지 않는 학습자를 대상되는 시험의 하나이지만, 각각 초급, 중급, 고급 시험이 있으며, 점수별로 급이 다릅니다.</p>
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>초급</th>
+                                                <th>중급</th>
+                                                <th>고금</th>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>실시 기관</td>
+                                                <td colspan="3">한국어 능력 평가원</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>실시 횟수</td>
+                                                <td colspan="3">1년에 4번</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>시험 구분</td>
+                                                <td>1급(초급 레벨), 2급</td>
+                                                <td>3급, 4급</td>
+                                                <td>5급, 6급(최고 난이도)</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>시험 시간</td>
+                                                <td>입실 시간：<br>9:20까지<br>개시 시간：<br>10:00
+                                                    <br>종료 시간：<br>11:50
+                                                    <br> 총：110분
+                                                </td>
+                                                <td>입실 시간：<br>13:20까지<br> 개시 시간：<br>14:00
+                                                    <br>종료 시간：<br>16:00
+                                                    <br>총：120분
+                                                </td>
+                                                <td>입실 시간：<br>9:20까지<br> 개시 시간：<br>10:00
+                                                    <br>종료 시간：<br>12:55
+                                                    <br>총：165분
+                                                    <br>휴식 시간 10분을 포함
+                                                </td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>합격 기준</td>
+                                                <td>1급：80점 ~ 139점<br> 2급：140점 ~ 200점
+                                                </td>
+                                                <td>3급：80점 ~ 139점<br> 4급：140점 ~ 200점</td>
+                                                <td>5급：150점 ~ 239점<br>6급：240점 ~ 300점</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>비용</td>
+                                                <td colspan="3">40,000원<br>(한국 국외 경우는<br>현지 수험료가 기준)</td>
+                                            </tr>
+    
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <table class="table table-hover table-sm table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>초급</th>
+                                                <th>중급</th>
+                                                <th>고금</th>
+                                            </tr>                      
+    
+                                            <tr>
+                                                <td>형식</td>
+                                                <td colspan="2">PBT시험（필기 시험）<br>
+                                                                또한 CBT 시험（컴퓨터 시험）</td>
+                                                <td>PBT시험（필기 시험）</td>
+                                            </tr>
+    
+                                            <tr>
+                                                <td>문제</td>
+                                                <td colspan="3">문제에 관해서는<br> 한국어로 출제됩니다.
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>문제 레벨</td>
+                                                <td colspan = "3" style="width: 100px; padding: 20px;">
+                                                    <span class = "level">1급(초급)：</span>
+                                                    일상 생활에서 자주 쓰는 쉬운 회화나 표현을 할 수 있다.<br>
+
+                                                    <span class = "level">2급(초급)：</span>
+                                                    일상 생활이나 대인 관계에서 한국어로 기본적인 의사소통이 취할 수있다.<br>
+
+                                                    <span class = "level">3급(중급)：</span>
+                                                    다양한 상황에서 독자적으로 처리 할 수 있으며 일상적인 언어 표현을 거의 이해 사용할 수있다.<br>
+
+                                                    <span class = "level">4급(중급)：</span>
+                                                    일상 생활이나 회사 등의 일반적 상황에서 다양한 표현을 손쉽게 이해할 수 있어 활용할 수있다.<br>
+
+                                                    <span class = "level">5급(고급)：</span>
+                                                    원어민과 폭넓게 교류 할 수 있으며, 자신의 의사 표현이 명확하고 상대방을 설득 할 수 있다.<br>
+
+                                                    <span class = "level">6급(고급)：</span>
+                                                    원어민 수준의 자유로운 커뮤니케이션을 할 수 있다.<br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+    
+                                    <div class="tab_contents_item">
+                                        <h2>시험에 대한 주의 사항</h2>
+    
+                                        <h3>본인 확인 제시</h3>
+                                        <p>시험을 볼 때 <strong> 반드시 공적 사진이 부착 된 신분증</strong>이 필요합니다. <br> 예:여권과 운전 면허증, 외국인 등록증 등 (또한 자주 사용되는 학생증이나 사원증 등은 인정되지 않는 경우가 있으므로 주의하시기 바랍니다.)
+                                            <br>
+                                            또한 수험표를 분실 한 경우에는 즉시 사무국에 연락하십시오.</p>
+                                            <br>
+    
+                                            <h3>부정 행위</h3>
+                                            <table class="table table-hover table-sm table-bordered">
+                                                <tr>
+                                                    <th>부정 행위 예</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <ul class="example">
+                                                            <li>대리 시험을 의뢰한 사람, 그것을 받은 사람</li>
+                                                            <li>용지를 교환해서 대답한 사람 또는 교체하려고 시도한 사람</li>
+                                                            <li>시험 시작 후, 휴대폰, 소형 카메라, 이어폰 등 전자 기기를 소지 한 사람</li>
+                                                            <li>수험표, 신분증, 성적 증명서 등을 위조한 사람</li>
+                                                            <li>타인에게 답을 전달하거나 보인 사람 또는 다른 사람의 답을 본 사람</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </table>
+    
+                                            <p>※부정 행위를 한 경우 다음과 같은 처리가　됩니다.<br>
+                                                <ul>
+                                                    <li>시험 결과는 무효가 되어 3 년간 시험을 수험을 할 수 없다.</li>
+                                                    <li>업무 방해죄로 관련 기관에 형사 고발 될 수 있습니다.</li>
+                                                </ul>
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>홈페이지</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/index.asp" target="_blank" rel="noopener noreferrer">KLAT<br>홈페이지</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">각종 시험 개요</div>
+                        <ul class="ichiran">
+                            <li><a href="examination.html">TOPIK</a></li>
+                            <li><a href="examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">자료 일람</div>
+                        <ul class="ichiran">
+                            <li><a href="materials.html">TOPIK</a></li>
+                            <li><a href="materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="about.html" class = "nav-link">개요</a></li>
+                        <li class = "nav-item"><a href="question.html" class = "nav-link">문제</a></li>
+                        <li class = "nav-item"><a href="examination.html" class = "nav-link">시험에 대해</a></li>
+                        <li class = "nav-item"><a href="materials.html" class = "nav-link">참고 자료</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../js/question_vue.js">
+        
+    </script>
+</body>
+
+</html>
