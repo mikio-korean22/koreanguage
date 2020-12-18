@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="../../korean_toppage.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">개요</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">문제</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">시험에 대해</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">참고 자료</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            언어 선택
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../../../english/questions/beginner_questions/beginner_2.html">English</a>
+                            <a class="dropdown-item" href="beginner_2.html">Korean</a>
+                            <a class="dropdown-item" href="../../../japanese/questions/beginner_questions/beginner_2.html">japanese</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_question_page">
+                    <div id="app" class="row">
+                        <div class = "col-md-12 main_question" v-if="!completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">문제 {{ (questionIndex+1) }} </p>
+                                    <br>
+                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                                    <br>
+                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                                    <hr>
+                                    <button
+                                        type="button"
+                                        class="btn btn-block"
+                                        v-for="(answer,index) in currentQuestion.answers"
+                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class = "col-md-12 main_result" v-if="completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">결과</p>
+                                    <div v-for="(question,index) in this.questions">
+                                        <h4 class="card-title error_color">{{ question.question }}</h4>
+                                        <ul>
+                                            <li v-for="answer in question.answers">{{ answer }}</li>
+                                        </ul>
+                                        <span v-if="question.answer == answers[index]" id="correct">정답입니다<br>정답은 {{ question.answers[question.answer] }} 입니다.</span>
+                                        <span v-else id="incorrect">오답입니다<br>정답은 {{ question.answers[question.answer] }} 입니다.</span>
+                                        <br>
+                                        <br>
+                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>홈페이지</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>홈페이지</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">시험에 대해</div>
+                        <ul class="ichiran">
+                            <li><a href="../../examination.html">TOPIK</a></li>
+                            <li><a href="../../examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">참고 자료</div>
+                        <ul class="ichiran">
+                            <li><a href="../../materials.html">TOPIK</a></li>
+                            <li><a href="../../materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">개요</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">문제</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">시험에 대해</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">참고 자료</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                answers: [],
+                questionIndex: 0,
+                questions: [
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '친구랑 미국에 갔어요. 그 때 많이 찍었어요.',
+                        answers: [
+                            '취미',
+                            '안내',
+                            '지하철',
+                            '사진'
+                        ],
+                        answer: 3,
+                        question_translation: "I went to America with my friend. I took a lot of pictures there.",
+                        answer_translations: [
+                            '취미：hobby',
+                            '안내：guide',
+                            '지하철：subway',
+                            '사진：picture'
+                        ]
+                    },
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '바다에서 해요. 저는 정말 잘해요.',
+                        answers: [
+                            '수영',
+                            '이사',
+                            '준비',
+                            "생일"
+                        ],
+                        answer: 0,
+                        question_translation: "I did at the sea. I'm really good at it.",
+                        answer_translations: [
+                            '수영：swimming',
+                            '이사：moving house',
+                            '준비：preparing',
+                            "생일：birthday"
+                        ]
+                    },
+                    {
+                        question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '친구하고 (       )로 학교에 가요.',
+                        answers: [
+                            '지하철',
+                            '축구',
+                            '맥주',
+                            '운동'
+                        ],
+                        answer: 0,
+                        question_translation: "I go to school with friend by (      )",
+                        answer_translations: [
+                            '지하철：subway',
+                            '축구：soccer',
+                            '맥주：beer',
+                            '운동：exercise'
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '일어난 후 매일 신문을 (      ).',
+                        answers: [
+                            '마셔요',
+                            '이야기해요',
+                            '읽어요',
+                            "만들어요"
+                        ],
+                        answer: 2,
+                        question_translation: "After I wake up, I (     ) a newspaper.",
+                        answer_translations: [
+                            '마셔요：drink',
+                            '이야기해요：talk',
+                            '읽어요：read',
+                            "만들어요：make"
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '제 아버지는 저보다 키가 (        ).',
+                        answers: [
+                            '멋있어요',
+                            '커요',
+                            '재미있어요',
+                            "가까워요"
+                        ],
+                        answer: 1,
+                        question_translation: "My father is (       ) than me.",
+                        answer_translations: [
+                            '멋있어요：cool, handsome',
+                            '커요：big, tall',
+                            '재미있어요：interesting',
+                            "가까워요：close"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '친구하고 쇼핑몰에 가서 선물을 많이 샀어요.',
+                        answers: [
+                            '백화점에 선물을 사러 갔어요.',
+                            '슈퍼에 야채를 사러 갔어요.',
+                            '약국에 약을 먹으러 갔어요.',
+                            "친구를 만나러 공원에 갔어요."
+                        ],
+                        answer: 0,
+                        question_translation: "We have a puppy in our house. It's really cute and it's like an idol at home.",
+                        answer_translations: [
+                            '백화점에 선물을 사러 갔어요.：I went to a department store to buy a present.',
+                            '슈퍼에 야채를 사러 갔어요.：I went to a supermarket to buy vegetables.',
+                            '약국에 약을 먹으러 갔어요.：I went to a farmacy to take a medicine.',
+                            "친구를 만나러 공원에 갔어요.：I went to a park to see my friend."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '저는 매일 월요일부터 금요일까지 학교에 가서 아침부터 저녁까지 많이 공부해야 합니다.',
+                        answers: [
+                            '제 직업은 교사입니다.',
+                            '제 직업은 의사입니다.',
+                            '저는 우체국에서 일합니다.',
+                            "저는 학생입니다."
+                        ],
+                        answer: 3,
+                        question_translation: "I have to go to school from Monday to Friday and study a lot from the morning to the afternoon.",
+                        answer_translations: [
+                            '제 직업은 교사입니다.：My occupation is a teacher.',
+                            '제 직업은 의사입니다.：My occupation is a doctor.',
+                            '저는 우체국에서 일합니다.：I work at a post office.',
+                            "저는 학생입니다.：I am a student."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '저는 4월에 자주 꽃을 구경해요. 정말 아름답고 재미있어요',
+                        answers: [
+                            '저는 겨울에 자주 재미있는 눈을 봐요.',
+                            '저는 봄에 꽃을 보는 것을 좋아해요.',
+                            '저는 가을에 꽃을 항상 봐요.',
+                            "저는 여름에 친구한테 꽃을 보여요."
+                        ],
+                        answer: 3,
+                        question_translation: "I hung out in a city with my friend. My friend bought a white bag and I did a red shirt.",
+                        answer_translations: [
+                            '저는 겨울에 자주 재미있는 눈을 봐요.：I often see interesting snow in the winter.',
+                            '저는 봄에 꽃을 보는 것을 좋아해요.：I like seeing flowers in the spring.',
+                            '저는 가을에 꽃을 항상 봐요.：I alway see flowers in the autumn.',
+                            "저는 여름에 친구한테 꽃을 보여요.：I show flowers to my friend in the summer."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '어제 그녀가 저한테 선물을 줬어요.',
+                        answers: [
+                            '어제는 췄어요.',
+                            '저는 어제 선물을 받았어요.',
+                            '저는 어제 선물을 샀어요.',
+                            "그녀는 어제 선물을 받으러 왔어요."
+                        ],
+                        answer: 1,
+                        question_translation: "I make it a rule to play basketball for about 2 hours a day in the summer. And I play basketball 5 days a week. However, I drink a lot of beer so can't lose my weight.",
+                        answer_translations: [
+                            '어제는 췄어요.：Yesterday it was cold.',
+                            '저는 어제 선물을 받았어요.：Yesterday I got a present.',
+                            '저는 어제 선물을 샀어요.：Yesterday I bought a present.',
+                            "그녀는 어제 선물을 받으러 왔어요.：Yesterday she came to get a present."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '엄마가 걱정하니까 전화하는게 좋지 않아요?',
+                        answers: [
+                            '엄마가 걱정하는것은 좋지 않아요.',
+                            '엄마도 걱정하지않으니까 괞아요.',
+                            '엄마한테 연락하는 편이 좋아요.',
+                            "엄마도 제대로 연락해야 해요."
+                        ],
+                        answer: 2,
+                        question_translation: "I have to study a lot at school every day. Even after school, I have a lot of plans to go to a cram school and am tired.",
+                        answer_translations: [
+                            "엄마가 걱정하는것은 좋지 않아요.：It's not good that your mother is worrying.",
+                            "엄마도 걱정하지않으니까 괞아요.：Your mother is not worrying too so it's ok.",
+                            "엄마한테 연락하는 편이 좋아요.：It's better to contact your mother.",
+                            "엄마도 제대로 연락해야 해요.：：Your mother must contact properly too."
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addAnswer: function(index) {
+
+                    this.answers.push(index);
+
+                    if(!this.completed) {
+
+                        this.questionIndex++;
+
+                    }
+
+                }
+            },
+            computed: {
+                currentQuestion: function() {
+
+                    return this.questions[this.questionIndex];
+
+                },
+                completed: function() {
+
+                    return (this.questions.length == this.answers.length);
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
