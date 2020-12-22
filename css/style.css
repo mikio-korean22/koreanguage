@@ -111,6 +111,60 @@ main .owl-theme img {
   }
 }
 
+main .main-contents_index .ads {
+  color: #fff;
+  background-color: #f3c033;
+  padding: 0 25px 40px 25px;
+}
+
+main .main-contents_index .ads h2 {
+  padding: 20px 0;
+}
+
+main .main-contents_index .ads p {
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+main .main-contents_index .ads .button {
+  margin-top: 30px;
+}
+
+main .main-contents_index .ads .button a {
+  cursor: pointer;
+  color: #FF8000;
+  background-color: #c8ff00;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 20px;
+  text-shadow: 1px 2px 3px #513c3c;
+}
+
+main .main-contents_index .how_to_use {
+  background-color: #C3F6FF;
+}
+
+main .main-contents_index .how_to_use h2 {
+  padding: 20px 0;
+  background-color: #30C7F0;
+  color: #fff;
+}
+
+main .main-contents_index .how_to_use ul {
+  padding-bottom: 20px;
+}
+
+main .main-contents_index .how_to_use ul li {
+  list-style: none;
+  color: #0b67d0;
+  font-size: 20px;
+  margin-top: 20px;
+  line-height: 50px;
+}
+
 main .main-contents_question_index .questions_list {
   margin-top: 50px;
   margin-left: 100px;

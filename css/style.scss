@@ -95,6 +95,54 @@ main {
         }
     }
 
+    .main-contents_index{
+        .ads{
+            color: #fff;
+            background-color: #f3c033;
+            padding: 0 25px 40px 25px;
+            h2{
+                padding: 20px 0;
+            }
+            p{
+                line-height: 40px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .button{
+                margin-top: 30px;
+                a{
+                    cursor: pointer;
+                    color: #FF8000;
+                    background-color:#c8ff00;
+                    text-decoration: none;
+                    font-size: 30px;
+                    font-weight: bold;
+                    padding: 20px;
+                    border-radius: 20px;
+                    text-shadow:1px 2px 3px #513c3c;
+                }
+            }
+        }
+        .how_to_use{
+            background-color: #C3F6FF;
+            h2{
+                padding: 20px 0;
+                background-color: #30C7F0;
+                color: #fff;
+            }
+            ul{
+                padding-bottom: 20px;
+                li{
+                    list-style: none;
+                    color:hsl(212, 90%, 43%);
+                    font-size: 20px;
+                    margin-top: 20px;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+
     .main-contents_question_index{
         .questions_list{
             margin-top: 50px;
