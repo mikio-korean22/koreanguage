@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/mikio-korean22/koreanguage/issues"
   },
-  "homepage": "https://github.com/mikio-korean22/koreanguage#readme"
+  "homepage": "https://github.com/mikio-korean22/koreanguage#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
 }
