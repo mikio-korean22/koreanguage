@@ -27,21 +27,17 @@ header .navbar .navbar-brand {
   width: 300px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   header .navbar .navbar-brand {
+    margin-left: 50px;
     width: 200px;
   }
 }
 
-@media (max-width: 549px) {
+@media (max-width: 768px) {
   header .navbar .navbar-brand {
-    margin-left: 50px;
-  }
-}
-
-@media (max-width: 320px) {
-  header .navbar .navbar-brand {
-    width: 150px;
+    margin-left: 30px;
+    width: 200px;
   }
 }
 
@@ -57,10 +53,23 @@ header .navbar .navbar-nav {
   margin-right: 90px;
 }
 
-@media (max-width: 549px) {
+@media (max-width: 1024px) {
   header .navbar .navbar-nav {
     margin-left: 40px;
-    padding-top: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header .navbar .navbar-nav {
+    margin-left: 25px;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 549px) {
+  header .navbar .navbar-nav {
+    padding: 20px 0 20px 30px;
   }
 }
 
@@ -70,11 +79,22 @@ header .navbar .navbar-nav .nav-link {
   font-size: 2.5rem;
 }
 
+@media (max-width: 1024px) {
+  header .navbar .navbar-nav .nav-link {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   header .navbar .navbar-nav .nav-link {
     font-size: 15px;
-    font-size: 1.5rem;
     margin-right: 10px;
+  }
+}
+
+@media (max-width: 549px) {
+  header .navbar .navbar-nav .nav-link {
+    margin-top: 15px;
   }
 }
 
@@ -101,10 +121,29 @@ main .main-contents_index .ads h2 {
   padding: 20px 0;
 }
 
+@media (max-width: 549px) {
+  main .main-contents_index .ads h2 {
+    font-size: 22px;
+  }
+}
+
 main .main-contents_index .ads p {
   line-height: 40px;
   font-size: 20px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  main .main-contents_index .ads p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .main-contents_index .ads p {
+    font-size: 15px;
+    line-height: 33px;
+  }
 }
 
 main .main-contents_index .ads .button {
@@ -123,6 +162,18 @@ main .main-contents_index .ads .button a {
   text-shadow: 1px 2px 3px #513c3c;
 }
 
+@media (max-width: 768px) {
+  main .main-contents_index .ads .button a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .main-contents_index .ads .button a {
+    font-size: 15px;
+  }
+}
+
 main .main-contents_index .how_to_use {
   background-color: #C3F6FF;
 }
@@ -131,6 +182,12 @@ main .main-contents_index .how_to_use h2 {
   padding: 20px 0;
   background-color: #30C7F0;
   color: #fff;
+}
+
+@media (max-width: 549px) {
+  main .main-contents_index .how_to_use h2 {
+    font-size: 22px;
+  }
 }
 
 main .main-contents_index .how_to_use ul {
@@ -143,6 +200,20 @@ main .main-contents_index .how_to_use ul li {
   font-size: 20px;
   margin-top: 20px;
   line-height: 50px;
+}
+
+@media (max-width: 768px) {
+  main .main-contents_index .how_to_use ul li {
+    padding-right: 30px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .main-contents_index .how_to_use ul li {
+    font-size: 10px;
+    line-height: 30px;
+  }
 }
 
 main .main-contents_question_index .questions_list {
@@ -165,10 +236,16 @@ main .main-contents_question_index .questions_list {
 
 main .main-contents_question_index .questions_list .question_item {
   font-size: 20px;
+  margin-top: 20px;
 }
 
 main .main-contents_question_index .questions_list .question_item a {
   text-decoration: none;
+  color: #00CCCC;
+}
+
+main .main-contents_question_index .questions_list .question_item a:hover {
+  color: #009999;
 }
 
 main .main-contents_question_page {
@@ -438,8 +515,8 @@ main .main-contents_materials .list-materials .list-title {
 
 @media (max-width: 549px) {
   main .main-contents_materials .list-materials .list-title {
-    font-size: 25px;
-    font-size: 2.5rem;
+    font-size: 20px;
+    font-size: 2rem;
   }
 }
 
@@ -552,11 +629,8 @@ main .main-contents_examination .contents {
   }
 }
 
-main .main-contents_examination .contents .tab_contents .tab_contents_item table {
-  text-align: center;
-}
-
 main .main-contents_examination .contents .tab_contents .tab_contents_item table td {
+  text-align: center;
   padding: 10px 0;
   line-height: 30px;
 }
@@ -566,12 +640,38 @@ main .main-contents_examination .contents .tab_contents .tab_contents_item table
 }
 
 main .main-contents_examination .contents .tab_contents .tab_contents_item table .example {
+  text-align: left;
   margin-top: 15px;
+  padding-left: 30px;
 }
 
-main .main-contents_examination .contents .tab_contents .tab_contents_item table .example li {
+@media (max-width: 549px) {
+  main .main-contents_examination .contents .tab_contents .tab_contents_item table .example {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item table .example p {
   list-style: none;
-  font-size: 13px;
+  font-size: 12px;
+}
+
+@media (max-width: 549px) {
+  main .main-contents_examination .contents .tab_contents .tab_contents_item table .example p {
+    font-size: xx-small;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .main-contents_examination .contents .tab_contents .tab_contents_item ul {
+    padding-right: 30px;
+  }
+}
+
+main .main-contents_examination .contents .tab_contents .tab_contents_item ul li {
+  list-style: none;
 }
 
 main .main-contents_examination .contents .tab_contents .tab_contents_item .second_table {
@@ -587,11 +687,23 @@ main .main-contents_examination .contents .tab_contents h3 {
   padding-bottom: 10px;
 }
 
+@media (max-width: 549px) {
+  main .main-contents_examination .contents .tab_contents h3 {
+    font-size: 17px;
+  }
+}
+
 main .main-contents_about .contents_title_about {
   margin-top: 30px;
   text-align: center;
   font-size: 35px;
   font-weight: bold;
+}
+
+@media (max-width: 549px) {
+  main .main-contents_about .contents_title_about {
+    font-size: 25px;
+  }
 }
 
 main .main-contents_about .contents_subtitle_about {
@@ -604,6 +716,13 @@ main .main-contents_about p {
   font-size: 15px;
   font-size: 1.5rem;
   margin-top: 20px;
+  line-height: 40px;
+}
+
+@media (max-width: 549px) {
+  main .main-contents_about p {
+    line-height: 30px;
+  }
 }
 
 main .sub {
@@ -640,6 +759,13 @@ main .sub .brochure a {
   letter-spacing: 4px;
 }
 
+@media (max-width: 768px) {
+  main .sub .brochure a {
+    font-size: 15px;
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 549px) {
   main .sub .brochure a {
     font-size: 25px;
@@ -665,10 +791,17 @@ main .sub .list-materials .list-title {
   color: #fff;
 }
 
+@media (max-width: 768px) {
+  main .sub .list-materials .list-title {
+    font-size: 20px;
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 549px) {
   main .sub .list-materials .list-title {
-    font-size: 35px;
-    font-size: 3.5rem;
+    font-size: 25px;
+    font-size: 2.5rem;
   }
 }
 

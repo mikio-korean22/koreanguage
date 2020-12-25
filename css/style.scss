@@ -33,37 +33,48 @@ header {
         .navbar-brand{
             margin-left: 120px;
             width: 300px;
-            @media(max-width: 768px){
+            @media(max-width: 1024px){
+                margin-left: 50px;
                 width: 200px;
             }
-            @media(max-width: 549px){
-                margin-left: 50px;
-            }
-            @media(max-width: 320px){
-                width: 150px;
+            @media(max-width: 768px){
+                margin-left: 30px;
+                width: 200px;
             }
         }
 
         .navbar-toggler{
             margin-right: 30px;
         }
-
         a{
             color: #616161;
         }
     
         .navbar-nav{
             margin-right: 90px;
-            @media(max-width: 549px){
+            @media(max-width: 1024px){
                 margin-left: 40px;
-                padding-top: 20px;
+                margin-right: 20px;
+            }
+            @media(max-width: 768px){
+                margin-left: 25px;
+                margin-right: 15px;
+            }
+            @media(max-width: 549px){
+                padding: 20px 0 20px 30px;
             }
             .nav-link{
                 margin-right: 40px;
                 @include fontsize(25);
+                @media(max-width: 1024px){
+                    font-size: 20px;
+                }
                 @media(max-width: 768px){
-                    @include fontsize(15);
+                    font-size: 15px;
                     margin-right: 10px;
+                }
+                @media(max-width: 549px){
+                    margin-top: 15px;
                 }
             }
 
@@ -92,11 +103,21 @@ main {
             padding: 0 25px 40px 25px;
             h2{
                 padding: 20px 0;
+                @media(max-width: 549px){
+                    font-size: 22px;
+                }
             }
             p{
                 line-height: 40px;
                 font-size: 20px;
                 font-weight: bold;
+                @media(max-width: 768px){
+                    font-size: 15px;
+                }
+                @media(max-width: 549px){
+                    font-size: 15px;
+                    line-height: 33px;
+                }
             }
             .button{
                 margin-top: 30px;
@@ -110,6 +131,12 @@ main {
                     padding: 20px;
                     border-radius: 20px;
                     text-shadow:1px 2px 3px #513c3c;
+                    @media(max-width: 768px){
+                        font-size: 20px;
+                    }
+                    @media(max-width: 549px){
+                        font-size: 15px;
+                    }
                 }
             }
         }
@@ -119,6 +146,9 @@ main {
                 padding: 20px 0;
                 background-color: #30C7F0;
                 color: #fff;
+                @media(max-width: 549px){
+                    font-size: 22px;
+                }
             }
             ul{
                 padding-bottom: 20px;
@@ -128,6 +158,14 @@ main {
                     font-size: 20px;
                     margin-top: 20px;
                     line-height: 50px;
+                    @media(max-width: 768px){
+                        padding-right: 30px;
+                        font-size: 15px;
+                    }
+                    @media(max-width: 549px){
+                        font-size: 10px;
+                        line-height: 30px;
+                    }
                 }
             }
         }
@@ -147,8 +185,13 @@ main {
             }
             .question_item{
                 font-size: 20px;
+                margin-top: 20px;
                 a{
                     text-decoration: none;
+                    color: #00CCCC;
+                    &:hover{
+                        color: #009999;
+                    }
                 }
             }
         }
@@ -376,7 +419,7 @@ main {
                 @include fontsize(30);
                 color: #fff;
                 @media(max-width: 549px) {
-                    @include fontsize(25);
+                    @include fontsize(20);
                 }
             }
             .ichiran {
@@ -463,8 +506,8 @@ main {
             .tab_contents {
                 .tab_contents_item{
                     table {
-                        text-align: center;
                         td {
+                            text-align: center;
                             padding: 10px 0;
                             line-height: 30px;
                         }
@@ -473,11 +516,29 @@ main {
                         }
                         
                         .example{
+                            text-align: left;
                             margin-top: 15px;
-                            li{
-                                list-style: none;
-                                font-size: 13px;
+                            padding-left: 30px;
+                            @media(max-width: 549px){
+                                padding-left: 10px;
+                                padding-right: 10px;
                             }
+                            p{
+                                list-style: none;
+                                font-size: 12px;
+                                @media(max-width: 549px){
+                                    font-size: xx-small;
+                                    line-height: 25px;
+                                }
+                            }
+                        }
+                    }
+                    ul{
+                        @media(max-width: 549px){
+                            padding-right: 30px;
+                        }
+                        li{
+                            list-style: none;
                         }
                     }
 
@@ -491,6 +552,9 @@ main {
                     font-weight: bold;
                     margin-top: 30px;
                     padding-bottom: 10px;
+                    @media(max-width: 549px){
+                        font-size: 17px;
+                    }
                 }
             }
         }
@@ -502,6 +566,9 @@ main {
             text-align: center;
             font-size: 35px;
             font-weight: bold;
+            @media(max-width: 549px){
+                font-size: 25px;
+            }
         }
 
         .contents_subtitle_about {
@@ -513,6 +580,10 @@ main {
         p {
             @include fontsize(15);
             margin-top: 20px;
+            line-height: 40px;
+            @media(max-width: 549px){
+                line-height: 30px;
+            }
         }
     }
 
@@ -533,12 +604,15 @@ main {
             &:hover {
                 background-color: lighten(#45e86f, 10%);
             }
-            a {
+            a{
                 text-decoration: none;
                 font-weight: bold;
                 @include fontsize(20);
                 color: #fff;
                 letter-spacing: 4px;
+                @media(max-width: 768px){
+                    @include fontsize(15);
+                }
                 @media(max-width: 549px) {
                     @include fontsize(25);
                 }
@@ -560,8 +634,11 @@ main {
                 cursor: pointer;
                 @include fontsize(30);
                 color: #fff;
+                @media(max-width: 768px){
+                    @include fontsize(20);
+                }
                 @media(max-width: 549px) {
-                    @include fontsize(35);
+                    @include fontsize(25);
                 }
                 &:hover {
                     background-color: lighten(#caca30, 10%);
