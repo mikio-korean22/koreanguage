@@ -87,28 +87,8 @@ header .navbar .navbar-nav .dropdown-menu a {
   margin-top: 10px;
 }
 
-main .owl-theme {
-  margin: 0 auto;
-  visibility: visible;
-  border: 1px solid #000;
-}
-
-@media (max-width: 549px) {
-  main .owl-theme {
-    width: 100%;
-  }
-}
-
-main .owl-theme img {
-  height: 250px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-@media (max-width: 549px) {
-  main .owl-theme img {
-    height: 250px;
-  }
+main .owl-theme video {
+  width: 100%;
 }
 
 main .main-contents_index .ads {

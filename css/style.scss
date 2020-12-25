@@ -80,18 +80,8 @@ header {
 
 main {
     .owl-theme {
-        margin: 0 auto;
-        visibility: visible;
-        border: 1px solid #000;
-        @media(max-width: 549px) {
+        video{
             width: 100%;
-        }
-        img {
-            height: 250px;
-            object-fit: cover;
-            @media(max-width: 549px) {
-                height: 250px;
-            }
         }
     }
 
