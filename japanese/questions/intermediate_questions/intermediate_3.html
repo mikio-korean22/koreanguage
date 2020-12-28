@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -23,25 +23,25 @@
 <body>
     <header class="mb-4">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a href="../../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <a href="../../japanese_toppage.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon toggle_icon"></span>
             </button>
       
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class = "nav-item"><a href="../../about.html" class = "nav-link" style="margin-right: 20px;">About</a></li>
-                    <li class = "nav-item"><a href="../../question.html" class = "nav-link" style="margin-right: 20px;">Questions</a></li>
-                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link" style="margin-right: 20px;">Examination</a></li>
-                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link" style="margin-right: 20px;">References</a></li>
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
                     <li class = "nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Language
+                            言語選択
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="intermediate_3.html">English</a>
-                            <a class="dropdown-item" href="../../../korean/questions/intermediate_questions/intermediate_3.html">Korean</a>
-                            <a class="dropdown-item" href="../../../japanese/questions/intermediate_questions/intermediate_3.html">japanese</a>
+                            <a class="dropdown-item" href="../../../english/questions/intermediate_questions/intermediate_3.html">英語</a>
+                            <a class="dropdown-item" href="../../../korean/questions/intermediate_questions/intermediate_3.html">韓国語</a>
+                            <a class="dropdown-item" href="intermediate_3.html">日本語</a>
                           </div>
                     </li>
                 </ul>
@@ -57,7 +57,7 @@
                         <div class = "col-md-12 main_question" v-if="!completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
+                                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
                                     <br>
                                     <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
                                     <br>
@@ -75,15 +75,15 @@
                         <div class = "col-md-12 main_result" v-if="completed">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="badge badge-dark">Result</p>
+                                    <p class="badge badge-dark">結果</p>
                                     <div v-for="(question,index) in this.questions">
                                         <h4 class="card-title error_color">{{ question.question }}</h4>
                                         <span>{{ question.question_translation }}</span>
                                         <ul>
                                             <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
                                         </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
-                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <span v-if="question.answer == answers[index]" id="correct">正解です<br>正解は{{ question.answers[question.answer] }}です。</span>
+                                        <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
                                         <br>
                                         <br>
                                         
@@ -97,14 +97,14 @@
 
                 <div class="col-md-4 sub">
                     <div class="brochure animated fadeInDown">
-                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+                        <a href="https://www.kref.or.jp/examination" target="_blank" rel="noopener noreferrer">TOPIK<br>公式サイト</a>
                     </div>
                     <div class="brochure animated fadeInDown" id="topik">
-                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
+                        <a href="http://www.kets.or.kr/jpn/" target="_blank" rel="noopener noreferrer">KLAT<br>公式サイト</a>
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">About each <br>examination</div>
+                        <div class="list-title animated fadeInDown">各種試験概要</div>
                         <ul class="ichiran">
                             <li><a href="../../examination.html">TOPIK</a></li>
                             <li><a href="../../examination.html">KLAT</a></li>
@@ -112,7 +112,7 @@
                     </div>
 
                     <div class="list-materials">
-                        <div class="list-title animated fadeInDown">References</div>
+                        <div class="list-title animated fadeInDown">資料一覧</div>
                         <ul class="ichiran">
                             <li><a href="../../materials.html">TOPIK</a></li>
                             <li><a href="../../materials.html">KLAT</a></li>
@@ -133,10 +133,10 @@
                     </div>
                     <div class="footer_nav">
                     <ul>
-                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
-                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
-                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
-                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">References</a></li>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
                     </ul>
                     </div>
                 </div>
@@ -165,12 +165,12 @@
                             '특징'
                         ],
                         answer: 1,
-                        question_translation: "Adults gather and discuss about the future of nation.",
+                        question_translation: "大人が集まって、国家の将来に関することを討論します。",
                         answer_translations: [
-                            '농업：agriculture',
-                            '정치：government',
-                            '형태：figure',
-                            '특징：character'
+                            '농업：農業',
+                            '정치：政治',
+                            '형태：形',
+                            '특징：特徴'
                         ]
                     },
                     {
@@ -183,12 +183,12 @@
                             "절전"
                         ],
                         answer: 1,
-                        question_translation: "It's not too much to say mandatory in winter.",
+                        question_translation: "冬には必需品と言っても過言では位ほど必要なものだ。",
                         answer_translations: [
-                            '냉장고：refrigerator',
-                            '난로：heater',
-                            '냉방：AC',
-                            "절전：power saving"
+                            '냉장고：冷蔵庫',
+                            '난로：暖炉',
+                            '냉방：冷房',
+                            "절전：節電"
                         ]
                     },
                     {
@@ -201,12 +201,12 @@
                             '표정이 굳어져요'
                         ],
                         answer: 3,
-                        question_translation: "Every time I talk in front of people, always ()",
+                        question_translation: "人の前で話をするとき、いつも（）。",
                         answer_translations: [
-                            '표현이 올발라요：the expression is correct.',
-                            '표가 많아요：has a lot of votes',
-                            '표시가 중요해요：the display is importand',
-                            '표정이 굳어져요：become stiff'
+                            '표현이 올발라요：表現が正しいです',
+                            '표가 많아요：票が多いです',
+                            '표시가 중요해요：表示が重要です',
+                            '표정이 굳어져요：表情が硬くなります'
                         ]
                     },
                     {
@@ -219,12 +219,12 @@
                             "정신이 강했어요"
                         ],
                         answer: 0,
-                        question_translation: "I had a lot of things in all day so ().",
+                        question_translation: "一日中することがたくさんあって（）。",
                         answer_translations: [
-                            '정신이 없었어요：felt uneasy',
-                            '정신이 들었어요：regain consciousness',
-                            '정신을 차렸어요：got it together and focus on my job',
-                            "정신이 강했어요：had a strong mind"
+                            '정신이 없었어요：気が気じゃなかったです',
+                            '정신이 들었어요：意識を取り戻しました',
+                            '정신을 차렸어요：しっかりしました',
+                            "정신이 강했어요：精神が強かったです"
                         ]
                     },
                     {
@@ -237,12 +237,12 @@
                             "벽에 걸리는 게"
                         ],
                         answer: 2,
-                        question_translation: "If you have (), please ask me.",
+                        question_translation: "何か（）があれば、私に聞いてください。",
                         answer_translations: [
-                            '시간이 걸리는 게：something which taks time',
-                            '시동이 걸리는 게：something which starts an engine',
-                            "마음에 걸리는 게：something which you're worrying",
-                            "벽에 걸리는 게：something which put on the wall"
+                            '시간이 걸리는 게：時間がかかることが',
+                            '시동이 걸리는 게：エンジンがかかることが',
+                            "마음에 걸리는 게：気にかかるようなことが",
+                            "벽에 걸리는 게：壁にかかることが"
                         ]
                     },
                     {
@@ -255,12 +255,12 @@
                             "고향을 떠나서 친구하고 같이 사는 것은 두근두근하기 마련이다."
                         ],
                         answer: 2,
-                        question_translation: "Almost people live together with thier friends at a domitory adjacent to the school.",
+                        question_translation: "殆どの学生は学校に隣接している寮で友だちと一緒に住んでいます。",
                         answer_translations: [
-                            "고향을 떠나는 것은 누구든지 외로운 법이다.：There're no one who doesn't miss their hometowns after leaving there.",
-                            '누구든지 언젠가는 정신적으로도 독립해야 되기 마련이다.：All people will have to become independent mentally someday.',
-                            '수많은 학생들이 고향을 떠나서 공동 생활을 보내고 있다.：A lot of students leave their hometowns and live under the same roof.',
-                            "고향을 떠나서 친구하고 같이 사는 것은 두근두근하기 마련이다.：It's exciting to leave one's hometown and live with friends."
+                            "고향을 떠나는 것은 누구든지 외로운 법이다.：故郷を離れることは誰でも寂しいものだ。",
+                            '누구든지 언젠가는 정신적으로도 독립해야 되기 마련이다.：誰でもいつかは精神的に独立しなければならないものだ。',
+                            '수많은 학생들이 고향을 떠나서 공동 생활을 보내고 있다.：数多くの学生が故郷を離れて共同生活を送っている。',
+                            "고향을 떠나서 친구하고 같이 사는 것은 두근두근하기 마련이다.：故郷を離れて友だちと一緒に住むことはドキドキする。"
                         ]
                     },
                     {
@@ -273,12 +273,12 @@
                             "사람은 실패를 해도 영 성장할 수 없기 마련이다."
                         ],
                         answer: 0,
-                        question_translation: "People can grow up after facing a brickwall.",
+                        question_translation: "人というものは、挫折を経験してこそ成長できものではないだろうか。",
                         answer_translations: [
-                            '사람은 수많은 실패를 하고 나서 비로소 성장 할 수 있다.：People can grow up after making a lot of failures.',
-                            "좌절을 겪고 싶지 않으면 문제가 발생하기전에 대응해야 한다.：We have to deal with the problem before it occurs if you don't want to face a brickwall.",
-                            "좌절을 경험하기로서니 성장할 수 없을 때도 있다.：There're some cases we can't grow up even if we face a brickwall.",
-                            "사람은 실패를 해도 영 성장할 수 없기 마련이다.：We can't grow up at all even if we face a brickwall."
+                            '사람은 수많은 실패를 하고 나서 비로소 성장 할 수 있다.：人は数多くの失敗をしてこそ初めて成長できる。',
+                            "좌절을 겪고 싶지 않으면 문제가 발생하기전에 대응해야 한다.：挫折を経験したくなければ、問題が発生する前に対応しなければならない。",
+                            "좌절을 경험하기로서니 성장할 수 없을 때도 있다.：挫折を経験したと言っても、成長できない時もある。",
+                            "사람은 실패를 해도 영 성장할 수 없기 마련이다.：人は失敗をしても全く成長できなものだ。"
                         ]
                     },
                     {
@@ -291,12 +291,12 @@
                             "해외에서 수입할까 하는데 사장님이 허가를 주시지 않았다."
                         ],
                         answer: 1,
-                        question_translation: "We're willing to import new agricultural products from abroad but there're a lot of things to do.",
+                        question_translation: "海外から新しく農産物を輸入しようかと思っているんですが、しないといけないことがたくさんあるんですよ。",
                         answer_translations: [
-                            "외국에서 수입하려고 했지만 좋은 거래처를 찾을 수 없었다.：We tried to import from abroad but could't find a good business partner.",
-                            "외국에서 수입하려고 하면 까다로운 철자를 밟아야 한다.：If we'd like to import from abroad, we'll have to go through time-consuming procedures",
-                            '해외에서 수입할 때는 안전성에 배려해야 한다.：When we import from abroad, we have to take the safety into the consideration.',
-                            "해외에서 수입할까 하는데 사장님이 허가를 주시지 않았다.：We're willing to import from abroad but the president doesn't allow that."
+                            "외국에서 수입하려고 했지만 좋은 거래처를 찾을 수 없었다.：外国から輸入しようとしましたが、良い取引先が見つからなかった。",
+                            "외국에서 수입하려고 하면 까다로운 철자를 밟아야 한다.：外国から輸入しようとすると手間のかかる手続きを踏まなければならない。",
+                            '해외에서 수입할 때는 안전성에 배려해야 한다.：海外から輸入するときは、安全性に配慮しなければならない。',
+                            "해외에서 수입할까 하는데 사장님이 허가를 주시지 않았다.：海外から輸入しようかなと思っているが、社長が許可を下さらない。"
                         ]
                     },
                     {
@@ -309,12 +309,12 @@
                             "그는 이 국가의 장래 대통령이라고 불리고 있을 정도의 존재다."
                         ],
                         answer: 3,
-                        question_translation: "He is a famous existance as a president in the future",
+                        question_translation: "彼は未来の大統領としてこの国では有名な存在だ。",
                         answer_translations: [
-                            "그는 언젠가 대통령이 되고 싶다고 하지만 확실하지 않다.：He says he'd like to become a president someday but it's not sure.",
-                            "그는 어린 시절부터 대통령이 되기를 바라고 있다.：He's wished to becomes a president since he was a kid.",
-                            "그는 언젠가 대통령이 될까 염려하고 있다.：He's worrying to become a president someday.",
-                            "그는 이 국가의 장래 대통령이라고 불리고 있을 정도의 존재다.：He's called a president in the future of this nation."
+                            "그는 언젠가 대통령이 되고 싶다고 하지만 확실하지 않다.：彼はいつか大統領になりたいと言っているがまだわからない。",
+                            "그는 어린 시절부터 대통령이 되기를 바라고 있다.：彼は幼い時から大統領になることを夢見ている。",
+                            "그는 언젠가 대통령이 될까 염려하고 있다.：彼はいつか大統領になるのではないかと懸念している。",
+                            "그는 이 국가의 장래 대통령이라고 불리고 있을 정도의 존재다.：彼はこの国家の将来のだいとうりょうと呼ばれているほどの存在だ。"
                         ]
                     },
                     {
@@ -327,12 +327,12 @@
                             "그녀는 노력 끝에 겨우 하나 상을 받았다."
                         ],
                         answer: 2,
-                        question_translation: "She received a lot of awards in this field.",
+                        question_translation: "彼女はこの分野では数多くの受賞経歴がある。",
                         answer_translations: [
-                            '그녀는 앞으로 수많은 상을 받을 수 있도록 노력하고 있다.：She puts her effort in order to receive a lot of awards.',
-                            "그녀는 지금까지 많은 전문적인 상을 받았다.：She's received a lot of expert awards.",
-                            "그녀는 많은 상을 받았지만 관심을 보지 않았다.：She received a lot of awards but didn't show her interest.",
-                            "그녀는 노력 끝에 겨우 하나 상을 받았다.：She received a award with effort and struggle."
+                            '그녀는 앞으로 수많은 상을 받을 수 있도록 노력하고 있다.：彼女はこれから数多くの賞をもらえるように努力している。',
+                            "그녀는 지금까지 많은 전문적인 상을 받았다.：彼女は今まで多くの専門的な賞をもらった。",
+                            "그녀는 많은 상을 받았지만 관심을 보지 않았다.：彼女は多くの賞をもらったが、関心を示さなかった。",
+                            "그녀는 노력 끝에 겨우 하나 상을 받았다.：彼女は努力の末にようやく一つ賞をもらった。"
                         ]
                     }
                 ]
