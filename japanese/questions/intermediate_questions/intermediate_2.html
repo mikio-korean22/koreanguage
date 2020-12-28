@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="../../japanese_toppage.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            言語選択
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../../../english/questions/intermediate_questions/intermediate_2.html">英語</a>
+                            <a class="dropdown-item" href="../../../korean/questions/intermediate_questions/intermediate_2.html">韓国語</a>
+                            <a class="dropdown-item" href="intermediate_2.html">日本語</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_question_page">
+                    <div id="app" class="row">
+                        <div class = "col-md-12 main_question" v-if="!completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
+                                    <br>
+                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                                    <br>
+                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                                    <hr>
+                                    <button
+                                        type="button"
+                                        class="btn btn-block"
+                                        v-for="(answer,index) in currentQuestion.answers"
+                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class = "col-md-12 main_result" v-if="completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">結果</p>
+                                    <div v-for="(question,index) in this.questions">
+                                        <h4 class="card-title error_color">{{ question.question }}</h4>
+                                        <span>{{ question.question_translation }}</span>
+                                        <ul>
+                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                        </ul>
+                                        <span v-if="question.answer == answers[index]" id="correct">正解です<br>正解は{{ question.answers[question.answer] }}です。</span>
+                                        <span v-else id="incorrect">不正解<br>正解は{{ question.answers[question.answer] }}です。</span>
+                                        <br>
+                                        <br>
+                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.kref.or.jp/examination" target="_blank" rel="noopener noreferrer">TOPIK<br>公式サイト</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/jpn/" target="_blank" rel="noopener noreferrer">KLAT<br>公式サイト</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">各種試験概要</div>
+                        <ul class="ichiran">
+                            <li><a href="../../examination.html">TOPIK</a></li>
+                            <li><a href="../../examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">資料一覧</div>
+                        <ul class="ichiran">
+                            <li><a href="../../materials.html">TOPIK</a></li>
+                            <li><a href="../../materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">概要</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">問題</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">試験について</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">参考資料</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                answers: [],
+                questionIndex: 0,
+                questions: [
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '우리 아빠도 거기서 일해요. 맨날 많은 것을 생산해요.',
+                        answers: [
+                            '계약',
+                            '주변',
+                            '공장',
+                            '공간'
+                        ],
+                        answer: 2,
+                        question_translation: "お父さんもそこで働いています。毎日たくさんのものを生産しています。",
+                        answer_translations: [
+                            '계약：契約',
+                            '주변：近所',
+                            '공장：工場',
+                            '공간：空間'
+                        ]
+                    },
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '가끔 엄하시지만 착하신 분이에요. 저에게 있어서는 여러가지 고마운 존재예요. ',
+                        answers: [
+                            '애완동물',
+                            '감사',
+                            '장사',
+                            "상사"
+                        ],
+                        answer: 3,
+                        question_translation: "時々厳しいですが、しんせつな方です。私にとっては、色々有難い存在です。",
+                        answer_translations: [
+                            '애완동물：ペット',
+                            '감사：感謝',
+                            '장사：商売',
+                            "상사：上司"
+                        ]
+                    },
+                    {
+                        question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '주말에는 세탁기를 () 엄청 바빠요.',
+                        answers: [
+                            '주장하거나',
+                            '돌리거나',
+                            '걸리거나',
+                            '우거나'
+                        ],
+                        answer: 1,
+                        question_translation: "週末には洗濯機を（）ものすごく忙しいです。",
+                        answer_translations: [
+                            '주장하거나：主張したり',
+                            '돌리거나：まわしたり',
+                            '걸리거나：かかったり',
+                            '울거나：泣いたり'
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '어제 선배에게서 조언을 ()',
+                        answers: [
+                            '이뤘어요',
+                            '얻었어요',
+                            '견뎠어요',
+                            "권했어요"
+                        ],
+                        answer: 1,
+                        question_translation: "昨日、先輩からアドバイスを（）。",
+                        answer_translations: [
+                            '이뤘어요：叶いました。成し遂げました',
+                            '얻었어요：もらいました。得ました',
+                            '견뎠어요：耐えました',
+                            "권했어요：薦めました"
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '다음주 잔치를 () 하는데 너도 올래?',
+                        answers: [
+                            '생산할까',
+                            '흔들까',
+                            '벌일까',
+                            "찌를까"
+                        ],
+                        answer: 2,
+                        question_translation: "来週宴会を（）思っているんだけど、君も来る？",
+                        answer_translations: [
+                            '생산할까：生産しようかなと',
+                            '흔들까：流そうかなと',
+                            '벌일까：開こうかなと',
+                            "찌를까：突こうかなと"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '아무 문제도 없이 어제 계약을 맺을 수 있어요.',
+                        answers: [
+                            '어제 거래처가 조건에 동의해 줬어요.',
+                            '어제 거래처가 조건을 제시했어요.',
+                            '어제 거래처가 조건을 거부했어요.',
+                            "어제 거래처가 조건을 확인했어요."
+                        ],
+                        answer: 0,
+                        question_translation: "何の問題もなく、昨日契約を結べました。",
+                        answer_translations: [
+                            '어제 거래처가 조건에 동의해 줬어요.：昨日取引先が条件に同意してくれました。',
+                            '어제 거래처가 조건을 제시했어요.：昨日取引先が、条件を提示しました。',
+                            '어제 거래처가 조건을 거부했어요.：昨日取引先が条件を拒みました。',
+                            "어제 거래처가 조건을 확인했어요.：昨日取引先が条件を確認しました。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '유학 생활이 얼마나 힘들어도 혼자서 견디고 잘 공부하고 있어요.',
+                        answers: [
+                            '유학 생활이 힘들어서 집에 가고 십대요.',
+                            '유학 생활이 힘들어도 잘 참고 있어요.',
+                            '유학 생활은 다른 친구덕분에 문제없이 재미있게 보내고 있어요.',
+                            "유학 생활은 알차게 보내고 있어요."
+                        ],
+                        answer: 1,
+                        question_translation: "留学生活がいくらしんどくても、一人で耐えてよく勉強しています。",
+                        answer_translations: [
+                            "유학 생활이 힘들어서 집에 가고 십대요.：留学生活がしんどくて、家に帰りたいそうです。",
+                            '유학 생활이 힘들어도 잘 참고 있어요.：留学生活がしんどくてもよく我慢しています。',
+                            '유학 생활은 다른 친구덕분에 문제없이 재미있게 보내고 있어요.：留学生活は、ほかの友達のおかげで問題なく楽しく過ごしています。',
+                            "유학 생활은 알차게 보내고 있어요.：留学生活は充実して過ごしています。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '나는 인생중에서 마음이 통하는 친구가 한 두 명이 있으면 충분하다',
+                        answers: [
+                            '인생은 친구가 가급적 많이 있는편이 좋다.',
+                            '인생이라는 것에 친구라는 게 정말 필요할까.',
+                            '인생에는 친한 친구가 조금이라도 있으면 문제 없다.',
+                            "친구라는 것은 마음이 통하는지 안 통하는지는 문제가 않다."
+                        ],
+                        answer: 2,
+                        question_translation: "私は人生において心が通じる友だちが一人、二人いれば十分だ。",
+                        answer_translations: [
+                            "인생은 친구가 가급적 많이 있는편이 좋다.：人生は友だちができるだけたくさんいたほうがいい。",
+                            '인생이라는 것에 친구라는 게 정말 필요할까.：人生というものに友だちというものが本当に必要なのだろうか。',
+                            '인생에는 친한 친구가 조금이라도 있으면 문제 없다.：人生には親しい友達が少しでもいれば問題ない。',
+                            "친구라는 것은 마음이 통하는지 안 통하는지는 문제가 않다.：友だちというものは心が通じるか通じないかは問題ではない。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '이 작품은 그 시대 문화를 잘 반연하고 있다.',
+                        answers: [
+                            '그 시대 문화가 이 작품에 인해 잘 표현되고 있어요.',
+                            '이 작품은 유명 화가에 인해 그러졌어요.',
+                            '이 작품을 매력적이고 인기가 있어요.',
+                            "미술적 작품을 보기는 미적 감각을 성장시켜요."
+                        ],
+                        answer: 0,
+                        question_translation: "この作品はその時代の文化をうまく反映している。",
+                        answer_translations: [
+                            '그 시대 문화가 이 작품에 인해 잘 표현되고 있어요.；その時代の文化がこの作品によってうまく表現されています。',
+                            '이 작품은 유명 화가에 인해 그러졌어요.：この作品んは有名画家によって描かれました。',
+                            '이 작품을 매력적이고 인기가 있어요.：この作品は魅力的で人気があります。',
+                            "미술적 작품을 보기는 미적 감각을 성장시켜요.：美術的作品を見ることは、美的感覚を成長させます。"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '국가를 위해 무슨 일이 있어도 해낼 작정이다.',
+                        answers: [
+                            '앞으로 문제가 생길까 걱정이다.',
+                            '문제가 생기면 우선 상사에게 상담을 하도록 해야 된다.',
+                            '해낼 수 있는지는 나라 나름이다.',
+                            "문제가 생기로서니 어떻게든 목적을 달성할 셈이다."
+                        ],
+                        answer: 3,
+                        question_translation: "国家のためにどんなことがあっても成し遂げるつもりです。",
+                        answer_translations: [
+                            "앞으로 문제가 생길까 걱정이다.：これから問題が生じるか心配だ。",
+                            "문제가 생기면 우선 상사에게 상담을 하도록 해야 된다.：問題が生じればまず上司に相談するようにしなければならない。",
+                            '해낼 수 있는지는 나라 나름이다.：成し遂げられるかは国次第だ。',
+                            "문제가 생기로서니 어떻게든 목적을 달성할 셈이다.：問題が生じたとしても、どうにかして目的を達成するつもりだ。"
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addAnswer: function(index) {
+
+                    this.answers.push(index);
+
+                    if(!this.completed) {
+
+                        this.questionIndex++;
+
+                    }
+
+                }
+            },
+            computed: {
+                currentQuestion: function() {
+
+                    return this.questions[this.questionIndex];
+
+                },
+                completed: function() {
+
+                    return (this.questions.length == this.answers.length);
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

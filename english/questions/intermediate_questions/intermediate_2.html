@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="../../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link" style="margin-right: 20px;">About</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link" style="margin-right: 20px;">Questions</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link" style="margin-right: 20px;">Examination</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link" style="margin-right: 20px;">References</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="intermediate_2.html">English</a>
+                            <a class="dropdown-item" href="../../../korean/questions/intermediate_questions/intermediate_2.html">Korean</a>
+                            <a class="dropdown-item" href="../../../japanese/questions/intermediate_questions/intermediate_2.html">japanese</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_question_page">
+                    <div id="app" class="row">
+                        <div class = "col-md-12 main_question" v-if="!completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
+                                    <br>
+                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                                    <br>
+                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                                    <hr>
+                                    <button
+                                        type="button"
+                                        class="btn btn-block"
+                                        v-for="(answer,index) in currentQuestion.answers"
+                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class = "col-md-12 main_result" v-if="completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">Result</p>
+                                    <div v-for="(question,index) in this.questions">
+                                        <h4 class="card-title error_color">{{ question.question }}</h4>
+                                        <span>{{ question.question_translation }}</span>
+                                        <ul>
+                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                        </ul>
+                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <br>
+                                        <br>
+                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">About each <br>examination</div>
+                        <ul class="ichiran">
+                            <li><a href="../../examination.html">TOPIK</a></li>
+                            <li><a href="../../examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">References</div>
+                        <ul class="ichiran">
+                            <li><a href="../../materials.html">TOPIK</a></li>
+                            <li><a href="../../materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">References</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                answers: [],
+                questionIndex: 0,
+                questions: [
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '우리 아빠도 거기서 일해요. 맨날 많은 것을 생산해요.',
+                        answers: [
+                            '계약',
+                            '주변',
+                            '공장',
+                            '공간'
+                        ],
+                        answer: 2,
+                        question_translation: "My father works there, too. Everyday he produces a lot of things.",
+                        answer_translations: [
+                            '계약：contract',
+                            '주변：neighborhood',
+                            '공장：factory',
+                            '공간：space, room'
+                        ]
+                    },
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '가끔 엄하시지만 착하신 분이에요. 저에게 있어서는 여러가지 고마운 존재예요. ',
+                        answers: [
+                            '애완동물',
+                            '감사',
+                            '장사',
+                            "상사"
+                        ],
+                        answer: 3,
+                        question_translation: "He is sometimes strict. I'm thankful for him.",
+                        answer_translations: [
+                            '애완동물：pet',
+                            '감사：gratitude',
+                            '장사：business',
+                            "상사：boss"
+                        ]
+                    },
+                    {
+                        question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '주말에는 세탁기를 () 엄청 바빠요.',
+                        answers: [
+                            '주장하거나',
+                            '돌리거나',
+                            '걸리거나',
+                            '우거나'
+                        ],
+                        answer: 1,
+                        question_translation: "I () and very busy on weekend.",
+                        answer_translations: [
+                            '주장하거나：insist, assert',
+                            '돌리거나：run (the laungry), turn',
+                            '걸리거나：take',
+                            '울거나：cry'
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '어제 선배에게서 조언을 ()',
+                        answers: [
+                            '이뤘어요',
+                            '얻었어요',
+                            '견뎠어요',
+                            "권했어요"
+                        ],
+                        answer: 1,
+                        question_translation: "Yesterday I () an advice from my superior.",
+                        answer_translations: [
+                            '이뤘어요：came true',
+                            '얻었어요：got',
+                            '견뎠어요：stood, put up with',
+                            "권했어요：recommended"
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '다음주 잔치를 () 하는데 너도 올래?',
+                        answers: [
+                            '생산할까',
+                            '흔들까',
+                            '벌일까',
+                            "찌를까"
+                        ],
+                        answer: 2,
+                        question_translation: "I'm going to () a party next week and why don't you come?",
+                        answer_translations: [
+                            '생산할까：produce',
+                            '흔들까：flush (water)',
+                            '벌일까：hold, start',
+                            "찌를까：spear"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '아무 문제도 없이 어제 계약을 맺을 수 있어요.',
+                        answers: [
+                            '어제 거래처가 조건에 동의해 줬어요.',
+                            '어제 거래처가 조건을 제시했어요.',
+                            '어제 거래처가 조건을 거부했어요.',
+                            "어제 거래처가 조건을 확인했어요."
+                        ],
+                        answer: 0,
+                        question_translation: "Yesterday I made a contract without any problems.",
+                        answer_translations: [
+                            '어제 거래처가 조건에 동의해 줬어요.：Yesterday the client consented.',
+                            '어제 거래처가 조건을 제시했어요.：Yesterday the cliend requested the terms.',
+                            '어제 거래처가 조건을 거부했어요.：Yesterday the cliend rejected the terms.',
+                            "어제 거래처가 조건을 확인했어요.：Yesterday the cliend confirmed the terms."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '유학 생활이 얼마나 힘들어도 혼자서 견디고 잘 공부하고 있어요.',
+                        answers: [
+                            '유학 생활이 힘들어서 집에 가고 십대요.',
+                            '유학 생활이 힘들어도 잘 참고 있어요.',
+                            '유학 생활은 다른 친구덕분에 문제없이 재미있게 보내고 있어요.',
+                            "유학 생활은 알차게 보내고 있어요."
+                        ],
+                        answer: 1,
+                        question_translation: "Even if the living abroad is tiring, he stands in alone and studies well.",
+                        answer_translations: [
+                            "유학 생활이 힘들어서 집에 가고 십대요.：He told he'd like to go home because the living abroad is tiring.",
+                            '유학 생활이 힘들어도 잘 참고 있어요.：Even if the living abroad is tiring, he stands it well.',
+                            '유학 생활은 다른 친구덕분에 문제없이 재미있게 보내고 있어요.：He spends pleasantly without any problems thanks to his friends.',
+                            "유학 생활은 알차게 보내고 있어요.：The living abroad is fullfiling."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '나는 인생중에서 마음이 통하는 친구가 한 두 명이 있으면 충분하다',
+                        answers: [
+                            '인생은 친구가 가급적 많이 있는편이 좋다.',
+                            '인생이라는 것에 친구라는 게 정말 필요할까.',
+                            '인생에는 친한 친구가 조금이라도 있으면 문제 없다.',
+                            "친구라는 것은 마음이 통하는지 안 통하는지는 문제가 않다."
+                        ],
+                        answer: 2,
+                        question_translation: "It's enough if I have a few friends I can see eye to eye in my life.",
+                        answer_translations: [
+                            "인생은 친구가 가급적 많이 있는편이 좋다.：It's better to have as many frinds as possible in my life.",
+                            '인생이라는 것에 친구라는 게 정말 필요할까.：I wonder we should have a friend in my life.',
+                            '인생에는 친한 친구가 조금이라도 있으면 문제 없다.：It has no problems if we have a few close friends in my life.',
+                            "친구라는 것은 마음이 통하는지 안 통하는지는 문제가 않다.：It does't matter whether you can see eye to eye with your friend."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '이 작품은 그 시대 문화를 잘 반연하고 있다.',
+                        answers: [
+                            '그 시대 문화가 이 작품에 인해 잘 표현되고 있어요.',
+                            '이 작품은 유명 화가에 인해 그러졌어요.',
+                            '이 작품을 매력적이고 인기가 있어요.',
+                            "미술적 작품을 보기는 미적 감각을 성장시켜요."
+                        ],
+                        answer: 0,
+                        question_translation: "The artwork portrays the culture in those time.",
+                        answer_translations: [
+                            '그 시대 문화가 이 작품에 인해 잘 표현되고 있어요.；The culture in those time was expressed well by this artwork.',
+                            '이 작품은 유명 화가에 인해 그러졌어요.：This artwork was drawn by a famous artist.',
+                            '이 작품을 매력적이고 인기가 있어요.：This artwork is attractive and popular.',
+                            "미술적 작품을 보기는 미적 감각을 성장시켜요.：We can improve our artistic tastes by appreciating for art."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '국가를 위해 무슨 일이 있어도 해낼 작정이다.',
+                        answers: [
+                            '앞으로 문제가 생길까 걱정이다.',
+                            '문제가 생기면 우선 상사에게 상담을 하도록 해야 된다.',
+                            '해낼 수 있는지는 나라 나름이다.',
+                            "문제가 생기로서니 어떻게든 목적을 달성할 셈이다."
+                        ],
+                        answer: 3,
+                        question_translation: "I'm going to achive our goal for the nation.",
+                        answer_translations: [
+                            "앞으로 문제가 생길까 걱정이다.：I'm worrying whether problems will occur.",
+                            "문제가 생기면 우선 상사에게 상담을 하도록 해야 된다.：If a problem occurs, we have to consult with our boss at first.",
+                            '해낼 수 있는지는 나라 나름이다.：It depends on the nation whether I can achieve my goal.',
+                            "문제가 생기로서니 어떻게든 목적을 달성할 셈이다.：Even if a problem occurs, I'm going to achieve my goal."
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addAnswer: function(index) {
+
+                    this.answers.push(index);
+
+                    if(!this.completed) {
+
+                        this.questionIndex++;
+
+                    }
+
+                }
+            },
+            computed: {
+                currentQuestion: function() {
+
+                    return this.questions[this.questionIndex];
+
+                },
+                completed: function() {
+
+                    return (this.questions.length == this.answers.length);
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
