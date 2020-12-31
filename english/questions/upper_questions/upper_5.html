@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Koreanguage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/animated.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="../../../index.html"><img class="u-max-full-width navbar-brand" src="../../../images/Koreanguage_title.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon toggle_icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class = "nav-item"><a href="../../about.html" class = "nav-link" style="margin-right: 20px;">About</a></li>
+                    <li class = "nav-item"><a href="../../question.html" class = "nav-link" style="margin-right: 20px;">Questions</a></li>
+                    <li class = "nav-item"><a href="../../examination.html" class = "nav-link" style="margin-right: 20px;">Examination</a></li>
+                    <li class = "nav-item"><a href="../../materials.html" class = "nav-link" style="margin-right: 20px;">References</a></li>
+                    <li class = "nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="upper_5.html">English</a>
+                            <a class="dropdown-item" href="../../../korean/questions/upper_questions/upper_5.html">Korean</a>
+                            <a class="dropdown-item" href="../../../japanese/questions/upper_questions/upper_5.html">japanese</a>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 main-contents_question_page">
+                    <div id="app" class="row">
+                        <div class = "col-md-12 main_question" v-if="!completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
+                                    <br>
+                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                                    <br>
+                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                                    <hr>
+                                    <button
+                                        type="button"
+                                        class="btn btn-block"
+                                        v-for="(answer,index) in currentQuestion.answers"
+                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class = "col-md-12 main_result" v-if="completed">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="badge badge-dark">Result</p>
+                                    <div v-for="(question,index) in this.questions">
+                                        <h4 class="card-title error_color">{{ question.question }}</h4>
+                                        <span>{{ question.question_translation }}</span>
+                                        <ul>
+                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                        </ul>
+                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
+                                        <br>
+                                        <br>
+                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 sub">
+                    <div class="brochure animated fadeInDown">
+                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+                    </div>
+                    <div class="brochure animated fadeInDown" id="topik">
+                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">About each <br>examination</div>
+                        <ul class="ichiran">
+                            <li><a href="../../examination.html">TOPIK</a></li>
+                            <li><a href="../../examination.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list-materials">
+                        <div class="list-title animated fadeInDown">References</div>
+                        <ul class="ichiran">
+                            <li><a href="../../materials.html">TOPIK</a></li>
+                            <li><a href="../../materials.html">KLAT</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mb-4">
+        <div class = "container">
+            <div class = "row">
+                <div class = "footer_contents col-md-12">
+                    <div class="page-top" id="top-btn">
+                        <p>Page top</p>
+                    </div>
+                    <div class="footer_nav">
+                    <ul>
+                        <li class = "nav-item"><a href="../../about.html" class = "nav-link">About</a></li>
+                        <li class = "nav-item"><a href="../../question.html" class = "nav-link">Questions</a></li>
+                        <li class = "nav-item"><a href="../../examination.html" class = "nav-link">Examination</a></li>
+                        <li class = "nav-item"><a href="../../materials.html" class = "nav-link">References</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../../owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                answers: [],
+                questionIndex: 0,
+                questions: [
+                    {
+                        question_content: '무엇에 대한 것인지 알맞은 것을 고르십시오.',
+                        question: '()로/으로 고객들을 유혹해서 매출을 올리는 것도 기술의 하나다.',
+                        answers: [
+                            '일거양득',
+                            '시시비비',
+                            '인과응보',
+                            '감언이설'
+                        ],
+                        answer: 3,
+                        question_translation: "It is also one of the strategies to increase sals by sweet talk.",
+                        answer_translations: [
+                            '일거양득：Kill two birds with one stone',
+                            '시시비비：right and[or] wrong',
+                            '인과응보：Karma',
+                            '감언이설：Sweet talk'
+                        ]
+                    },
+                    {
+                        question_content: '무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.',
+                        question: '새삼스레 거짓말을 해도 어쩔 수 없으므로 () 하세요',
+                        answers: [
+                            '이실직고',
+                            '고진감래',
+                            '목불식정',
+                            "파란만장"
+                        ],
+                        answer: 0,
+                        question_translation: "It can't be helped even if you tell a lie now, so please ().",
+                        answer_translations: [
+                            '이실직고：telling a truth',
+                            '고진감래：sweet after bitter',
+                            '목불식정：do not know anything',
+                            "파란만장：living a life of ups and downs"
+                        ]
+                    },
+                    {
+                        question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오.',
+                        question: '맨날 알바하고 공부만에 () 스트레스가 쌓일 뿐이다.',
+                        answers: [
+                            '누려서',
+                            '헷갈려서',
+                            '얽매여서',
+                            '간추려서'
+                        ],
+                        answer: 2,
+                        question_translation: "I'm pressed for part-time job and studying so stressed.",
+                        answer_translations: [
+                            '누려서：enjoy',
+                            '헷갈려서：get distracted',
+                            '얽매여서：be pressed for',
+                            '간추려서：summarize'
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '세 사람은 같이 놀 때 () 항상 가는 곳이 있다.',
+                        answers: [
+                            '전연',
+                            '급기야',
+                            '으레',
+                            "고작"
+                        ],
+                        answer: 2,
+                        question_translation: "When three of them hung out, they have one place to visit ().",
+                        answer_translations: [
+                            '전연：not at all',
+                            '급기야：at last',
+                            '으레：always, every time',
+                            "고작：just only"
+                        ]
+                    },
+                    {
+                        question_content: '(        )에 들어갈 가장 알맞은 것을 고르십시오. ',
+                        question: '그는 프로 선수과 () 정도 당구가 잘해요.',
+                        answers: [
+                            '기지개를 펼',
+                            '추파를 던질',
+                            '트집을 잡을',
+                            "어깨를 나란히 할"
+                        ],
+                        answer: 3,
+                        question_translation: "Demonstrations are being held in Tokyo for the purpose of () specific foreigners",
+                        answer_translations: [
+                            "기지개를 펼：straighten one's back",
+                            '추파를 던질：make passes at',
+                            '트집을 잡을：pick a fight',
+                            "어깨를 나란히 할：stand a shoulder to shoulder"
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '더위가 갈수록 기승을 부려서 사망할 사고도 발생했습니다.',
+                        answers: [
+                            '점점 겨울이 가까워져서 감기에 조심해야 한다.',
+                            '점차 더워져서 돌아가시는 사건도 일어났다.',
+                            '조금씩 더워져서 냉방을 마련해 둬야 된다.',
+                            "점차 추운 기절이 가까워저서 난로를 살까 하고 있다."
+                        ],
+                        answer: 1,
+                        question_translation: "As the heat went on, there were accidents that resulted in death.",
+                        answer_translations: [
+                            '점점 겨울이 가까워져서 감기에 조심해야 한다.：Winter is getting closer, so you have to be careful for disease.',
+                            '점차 더워져서 돌아가시는 사건도 일어났다.：There was an incident which some people died because of the heat.',
+                            '조금씩 더워져서 냉방을 마련해 둬야 된다.：It heats up little by little, so you need to prepare for an air conditioner.',
+                            "점차 추운 기절이 가까워저서 난로를 살까 하고 있다.：Gradually, the cold season is coming closer, so I am thinking of buying a stove."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '1 시간쯤 버스를 탔는데 멀미를 해서 메슥거렸어요.',
+                        answers: [
+                            '버스로 이동중 아름다운 경치를 봤다.',
+                            '버스를 타서 기분이 나빠졌다.',
+                            '버스를 탔는데 길이 막혀서 시간이 걸렸다.',
+                            "목적지까지 버스로 1 시간쯤 걸렸다."
+                        ],
+                        answer: 1,
+                        question_translation: "It took me about an hour by bus, and I got carsick and my stomach has been nauseous.",
+                        answer_translations: [
+                            '버스로 이동중 아름다운 경치를 봤다.：I saw a beautiful view while traveling by bus.',
+                            '버스를 타서 기분이 나빠졌다.：Taking the bus made me feels bad.',
+                            '버스를 탔는데 길이 막혀서 시간이 걸렸다.：I took the bus, but the road experienced traffic jams and it took time.',
+                            "목적지까지 버스로 1 시간쯤 걸렸다.：It took me about an hour to the destination."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '공부는 못해도 단지 무럭무럭 자라면 만족해요.',
+                        answers: [
+                            '공부는 못해도 몸이 건강하면 됐다.',
+                            '공부는 못해도 운동이 잘하면 됐다.',
+                            '공부는 못해도 배려심이 있는 아이가 되면 됐다.',
+                            "공부는 못해도 자신감이 넘치는 아이가 되면 됐다."
+                        ],
+                        answer: 0,
+                        question_translation: "Even if he can't study, I'm satisfied if he just grows up fine.",
+                        answer_translations: [
+                            "공부는 못해도 몸이 건강하면 됐다.：Even if he can't study, I'm satisfied if he is fine.",
+                            "공부는 못해도 운동이 잘하면 됐다.：Even if he can't study, I'm satisfied if he is good at exercising.",
+                            "공부는 못해도 배려심이 있는 아이가 되면 됐다.：Even if he can't study, I'm satisfied if he is considerate.",
+                            "공부는 못해도 자신감이 넘치는 아이가 되면 됐다.：Even if he can't study, I'm satisfied if he has full of confidence."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '오늘따라 사람들로 바글바글해서 놀랐다.',
+                        answers: [
+                            '오늘따라 붐벼서 놀랐다.',
+                            '오늘따라 사람이 적어서 궁금했다.',
+                            '오늘따라 모두 성실해서 놀랐다.',
+                            "오늘따라 지각하는 사람이 많아서 실망했다."
+                        ],
+                        answer: 0,
+                        question_translation: "I was suprised at there were quite a lot of people only today of all days.",
+                        answer_translations: [
+                            '오늘따라 붐벼서 놀랐다.：I was suprised at it was crowded only today of all days.',
+                            '오늘따라 사람이 적어서 궁금했다.：I was curious why there were few people only today of all days.',
+                            '오늘따라 모두 성실해서 놀랐다.：I was suprised at everyone was serious only today of all days.',
+                            "오늘따라 지각하는 사람이 많아서 실망했다.：I was disappointed at there were a lot of people come late only today of all days."
+                        ]
+                    },
+                    {
+                        question_content: '다음의 내용과 알맞은 것을 고르십시오.',
+                        question: '이 스킨을 쓰면 피부도 미끈미끈해지므로 인기가 있습니다.',
+                        answers: [
+                            '이 스킨을 사춘기 여드름에 큰 효과가 있다.',
+                            '이것은 여드름에 효과가 있는 남자용 스킨이다.',
+                            '이것은 주름에 효과가 있는 여자용 스킨이다.',
+                            "이것은 피부가 깨끗해지고 누구든지 쓸 수 있는 스킨이다."
+                        ],
+                        answer: 3,
+                        question_translation: "If you make use of this toner, your skin will become beatiful so this is popular.",
+                        answer_translations: [
+                            '이 스킨을 사춘기 여드름에 큰 효과가 있다.：This toner has a great effect on puberty acne.',
+                            "이것은 여드름에 효과가 있는 남자용 스킨이다.：This is a toner for men that works for acne.",
+                            "이것은 주름에 효과가 있는 여자용 스킨이다.：This is a toner for women that has an effect on wrinkles.",
+                            "이것은 피부가 깨끗해지고 누구든지 쓸 수 있는 스킨이다.：This is a skin for everyone which makes your skin beatifull."
+                        ]
+                    }
+                ]
+            },
+            methods: {
+                addAnswer: function(index) {
+
+                    this.answers.push(index);
+
+                    if(!this.completed) {
+
+                        this.questionIndex++;
+
+                    }
+
+                }
+            },
+            computed: {
+                currentQuestion: function() {
+
+                    return this.questions[this.questionIndex];
+
+                },
+                completed: function() {
+
+                    return (this.questions.length == this.answers.length);
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
