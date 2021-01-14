@@ -90,9 +90,47 @@ header {
 }
 
 main {
-    .owl-theme {
-        video{
-            width: 100%;
+    .toppage{
+        .top_explanation{
+            margin-top: 150px;
+            height: 500px;
+            @media(max-width: 549px){
+                height: 200px;
+                margin-top: 50px;
+            }
+            h3{
+                color: red;
+                font-size: 80px;
+                @media(max-width: 768px){
+                    font-size: 50px;
+                }
+            }
+            p{
+                font-size: 18px;
+                line-height: 40px;
+                font-weight: bold;
+                @media(max-width: 1024px){
+                    font-size: 14px;
+                }
+                @media(max-width: 549px){
+                    font-size: 10px;
+                }
+            }
+            a{
+                font-size: 20px;
+                font-weight: bold;
+                padding: 20px;
+            }
+        }
+
+        .topImage{
+            img{
+                margin-top: 100px;
+                width: 100%;
+                @media(max-width: 549px){
+                    margin-top: 20px;
+                }
+            }
         }
     }
 

@@ -107,8 +107,62 @@ header .navbar .navbar-nav .dropdown-menu a {
   margin-top: 10px;
 }
 
-main .owl-theme video {
+main .toppage .top_explanation {
+  margin-top: 150px;
+  height: 500px;
+}
+
+@media (max-width: 549px) {
+  main .toppage .top_explanation {
+    height: 200px;
+    margin-top: 50px;
+  }
+}
+
+main .toppage .top_explanation h3 {
+  color: red;
+  font-size: 80px;
+}
+
+@media (max-width: 768px) {
+  main .toppage .top_explanation h3 {
+    font-size: 50px;
+  }
+}
+
+main .toppage .top_explanation p {
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  main .toppage .top_explanation p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .toppage .top_explanation p {
+    font-size: 10px;
+  }
+}
+
+main .toppage .top_explanation a {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+main .toppage .topImage img {
+  margin-top: 100px;
   width: 100%;
+}
+
+@media (max-width: 549px) {
+  main .toppage .topImage img {
+    margin-top: 20px;
+  }
 }
 
 main .main-contents_index .ads {
