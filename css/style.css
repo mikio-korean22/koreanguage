@@ -747,16 +747,42 @@ main .main-contents_examination .contents .tab_contents h3 {
   }
 }
 
-main .main-contents_about .contents_title_about {
-  margin-top: 30px;
+main .top_about {
+  height: 600px;
+  width: 100%;
+  background-color: #56B4BE;
+  color: white;
+  margin-bottom: 20px;
+}
+
+main .top_about .contents_title_about {
+  margin-top: 0;
+  padding-top: 90px;
   text-align: center;
   font-size: 35px;
   font-weight: bold;
 }
 
 @media (max-width: 549px) {
-  main .main-contents_about .contents_title_about {
-    font-size: 25px;
+  main .top_about .contents_title_about {
+    font-size: 23px;
+  }
+}
+
+main .top_about p {
+  margin-top: 80px;
+  font-size: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+@media (max-width: 549px) {
+  main .top_about p {
+    font-size: 13px;
+    line-height: 30px;
+    margin: 50px 30px 0 30px;
   }
 }
 
