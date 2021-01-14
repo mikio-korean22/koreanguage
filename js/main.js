@@ -10,11 +10,11 @@ $(document).ready(function() {
     });
     
     //メニュー
-    $("#sp_navi_btn").click(function() {
-        $(this).next('ul').slideToggle();
+    $(".examination_h3").click(function() {
+        $(this).next('.examination_contents').slideToggle();
     });
     
-    $(".list-materials .list-title").click(function(){
+    $(".list-title").click(function(){
             $(this).next('.ichiran').slideToggle();
         });
 

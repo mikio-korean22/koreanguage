@@ -50,75 +50,45 @@
     </header>
 
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 main-contents_question_page">
-                    <div id="app" class="row">
-                        <div class = "col-md-12 main_question" v-if="!completed">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
-                                    <br>
-                                    <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
-                                    <br>
-                                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
-                                    <hr>
-                                    <button
-                                        type="button"
-                                        class="btn btn-block"
-                                        v-for="(answer,index) in currentQuestion.answers"
-                                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class = "col-md-12 main_result" v-if="completed">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="badge badge-dark">Result</p>
-                                    <div v-for="(question,index) in this.questions">
-                                        <h4 class="card-title error_color">{{ question.question }}</h4>
-                                        <span>{{ question.question_translation }}</span>
-                                        <ul>
-                                            <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
-                                        </ul>
-                                        <span v-if="question.answer == answers[index]" id="correct">Correct<br>The answer is {{ question.answers[question.answer] }}</span>
-                                        <span v-else id="incorrect">Incorrect<br>The answer is {{ question.answers[question.answer] }}</span>
-                                        <br>
-                                        <br>
-                                        
-                                        <hr>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="main-contents_question_page">
+            <div id="app" class="row">
+                <div class = "col-md-12 main_question" v-if="!completed">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="badge badge-dark">Question {{ (questionIndex+1) }} </p>
+                            <br>
+                            <h4 class = "card-title">{{ currentQuestion.question_content }}</h4>
+                            <br>
+                            <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                            <br>
+                            <button
+                                type="button"
+                                class="btn btn-block"
+                                v-for="(answer,index) in currentQuestion.answers"
+                                @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4 sub">
-                    <div class="brochure animated fadeInDown">
-                        <a href="https://www.topik.go.kr/usr/cmm/index.do" target="_blank" rel="noopener noreferrer">TOPIK<br>Homepage</a>
+        
+                <div class = "col-md-12 main_result" v-if="completed">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="badge badge-dark result_tag">Result</p>
+                            <div v-for="(question,index) in this.questions">
+                                <h4 class="card-title error_color">{{ question.question }}</h4>
+                                <span>{{ question.question_translation }}</span>
+                                <ul>
+                                    <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                </ul>
+                                <div v-if="question.answer == answers[index]" id="correct"><span>Correct</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
+                                <div v-else id="incorrect"><span>Incorrect</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
+                                <br>
+                                <br>
+                                
+                                <hr>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brochure animated fadeInDown" id="topik">
-                        <a href="http://www.kets.or.kr/eng/" target="_blank" rel="noopener noreferrer">KLAT<br>Homepage</a>
-                    </div>
-
-                    <div class="list-materials">
-                        <div class="list-title animated fadeInDown">About each <br>examination</div>
-                        <ul class="ichiran">
-                            <li><a href="../../examination.html">TOPIK</a></li>
-                            <li><a href="../../examination.html">KLAT</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="list-materials">
-                        <div class="list-title animated fadeInDown">References</div>
-                        <ul class="ichiran">
-                            <li><a href="../../materials.html">TOPIK</a></li>
-                            <li><a href="../../materials.html">KLAT</a></li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
         </div>

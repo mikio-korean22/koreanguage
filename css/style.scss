@@ -236,7 +236,20 @@ main {
     }
 
     .main-contents_question_page{
-        margin-top: 50px;
+        margin: 50px 160px 0 160px;
+        @media(max-width: 768px){
+            margin: 50px 100px 0 100px;
+        }
+        @media(max-width: 549px){
+            margin: 50px 0;
+        }
+        .badge{
+            @media(min-width: 1024px){
+                font-size: 18px;
+                margin: 17px 0 20px 50px;
+                padding: 10px;
+            }
+        }
         .card-title{
             font-size: 20px;
         }
@@ -248,8 +261,17 @@ main {
         }
 
         .main_result{
+            
+            h4{
+                @media(min-width: 1024px){
+                    margin: 50px 100px 20px 100px;
+                }
+            }
             ul{
                 margin: 40px 0;
+                @media(min-width: 1024px){
+                    margin: 0 100px;
+                }
                 li{
                     font-weight: bold;
                     @include fontsize(15);
@@ -260,14 +282,26 @@ main {
             span{
                 @include fontsize(20);
                 font-weight: bold;
+                @media(min-width: 1024px){
+                    margin: 0 100px;
+                }
             }
             #correct{
+                @include fontsize(20);
                 color: blue;
+                font-weight: bold;
+                @media(min-width: 1024px){
+                    margin-top: 50px;
+                }
             }
             #incorrect{
+                font-weight: bold;
+                @include fontsize(20);
                 color: red;
+                @media(min-width: 1024px){
+                    margin-top: 50px;
+                }
             }
-            
         }
     }
     
@@ -597,7 +631,7 @@ main {
             }
         }
     }
-
+    
     .top_about{
         height: 600px;
         width: 100%;
@@ -684,7 +718,7 @@ main {
             cursor: pointer;
         }
 
-        .list-materials {
+        
             .list-title {
                 width: 100%;
                 background-color: #caca30;
@@ -725,7 +759,7 @@ main {
                     }
                 }
             }
-        }
+        
     }
 }
 

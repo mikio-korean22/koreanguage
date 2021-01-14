@@ -303,7 +303,27 @@ main .main-contents_question_index .questions_list .question_item a:hover {
 }
 
 main .main-contents_question_page {
-  margin-top: 50px;
+  margin: 50px 160px 0 160px;
+}
+
+@media (max-width: 768px) {
+  main .main-contents_question_page {
+    margin: 50px 100px 0 100px;
+  }
+}
+
+@media (max-width: 549px) {
+  main .main-contents_question_page {
+    margin: 50px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  main .main-contents_question_page .badge {
+    font-size: 18px;
+    margin: 17px 0 20px 50px;
+    padding: 10px;
+  }
 }
 
 main .main-contents_question_page .card-title {
@@ -317,8 +337,20 @@ main .main-contents_question_page .btn {
   padding: 20px 0;
 }
 
+@media (min-width: 1024px) {
+  main .main-contents_question_page .main_result h4 {
+    margin: 50px 100px 20px 100px;
+  }
+}
+
 main .main-contents_question_page .main_result ul {
   margin: 40px 0;
+}
+
+@media (min-width: 1024px) {
+  main .main-contents_question_page .main_result ul {
+    margin: 0 100px;
+  }
 }
 
 main .main-contents_question_page .main_result ul li {
@@ -335,12 +367,36 @@ main .main-contents_question_page .main_result span {
   font-weight: bold;
 }
 
+@media (min-width: 1024px) {
+  main .main-contents_question_page .main_result span {
+    margin: 0 100px;
+  }
+}
+
 main .main-contents_question_page .main_result #correct {
+  font-size: 20px;
+  font-size: 2rem;
   color: blue;
+  font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+  main .main-contents_question_page .main_result #correct {
+    margin-top: 50px;
+  }
 }
 
 main .main-contents_question_page .main_result #incorrect {
+  font-weight: bold;
+  font-size: 20px;
+  font-size: 2rem;
   color: red;
+}
+
+@media (min-width: 1024px) {
+  main .main-contents_question_page .main_result #incorrect {
+    margin-top: 50px;
+  }
 }
 
 main .main-contents_each_question .list-materials {
@@ -858,7 +914,7 @@ main .sub #topik {
   cursor: pointer;
 }
 
-main .sub .list-materials .list-title {
+main .sub .list-title {
   width: 100%;
   background-color: #caca30;
   text-align: center;
@@ -872,36 +928,36 @@ main .sub .list-materials .list-title {
 }
 
 @media (max-width: 768px) {
-  main .sub .list-materials .list-title {
+  main .sub .list-title {
     font-size: 20px;
     font-size: 2rem;
   }
 }
 
 @media (max-width: 549px) {
-  main .sub .list-materials .list-title {
+  main .sub .list-title {
     font-size: 25px;
     font-size: 2.5rem;
   }
 }
 
-main .sub .list-materials .list-title:hover {
+main .sub .list-title:hover {
   background-color: #d7d756;
 }
 
-main .sub .list-materials ul {
+main .sub ul {
   background-color: #eaeaa9;
   padding: 20px 0 33px 0;
   display: none;
 }
 
-main .sub .list-materials ul li {
+main .sub ul li {
   list-style: none;
   text-align: center;
   margin-top: 15px;
 }
 
-main .sub .list-materials ul li a {
+main .sub ul li a {
   text-decoration: none;
   font-size: 15px;
   font-size: 1.5rem;
@@ -909,7 +965,7 @@ main .sub .list-materials ul li a {
   color: #00904a;
 }
 
-main .sub .list-materials ul li a:hover {
+main .sub ul li a:hover {
   color: #00f67e;
 }
 
