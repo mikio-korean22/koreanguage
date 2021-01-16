@@ -129,6 +129,7 @@
             data: {
                 answers: [],
                 questionIndex: 0,
+                isActive: false,
                 questions: [
                     {
                         question_content: '(     )에 들어갈 가장 알맞은 것을 고르십시오.',
@@ -314,27 +315,21 @@
             },
             methods: {
                 addAnswer: function(index) {
-
                     this.answers.push(index);
-
                     if(!this.completed) {
-
                         this.questionIndex++;
-
                     }
-
+                },
+                active: function(){
+                    this.isActive = !this.isActive;
                 }
             },
             computed: {
                 currentQuestion: function() {
-
                     return this.questions[this.questionIndex];
-
                 },
                 completed: function() {
-
                     return (this.questions.length == this.answers.length);
-
                 }
             }
         })

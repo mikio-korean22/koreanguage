@@ -128,6 +128,7 @@
             el: '#app',
             data: {
                 answers: [],
+                isActive: false,
                 questionIndex: 0,
                 questions: [
                     {
@@ -314,27 +315,21 @@
             },
             methods: {
                 addAnswer: function(index) {
-
                     this.answers.push(index);
-
                     if(!this.completed) {
-
                         this.questionIndex++;
-
                     }
-
+                },
+                active: function(){
+                    this.isActive = !this.isActive;
                 }
             },
             computed: {
                 currentQuestion: function() {
-
                     return this.questions[this.questionIndex];
-
                 },
                 completed: function() {
-
                     return (this.questions.length == this.answers.length);
-
                 }
             }
         })
