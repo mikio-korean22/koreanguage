@@ -77,20 +77,25 @@
                             <div v-for="(question,index) in this.questions">
                                 <h4 class="card-title error_color">{{ question.question }}</h4>
                                 <span>{{ question.question_translation }}</span>
-                                <ul>
-                                    <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
-                                </ul>
-                                <div v-if="question.answer == answers[index]" id="correct"><span>Correct</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
-                                <div v-else id="incorrect"><span>Incorrect</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
+                                <div v-if="question.answer == answers[index]" id="correct"><span>Correct.</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
+                                <div v-else id="incorrect"><span>Incorrect.</span><br><span>The answer is {{ question.answers[question.answer] }}</span></div>
                                 <br>
-                                <br>
-                                
-                                <hr>
+                                <div class="app2">
+                                    <div class="container">
+                                        <div @click="active" class = "button">Translation</div>
+                                        <div id="content" v-if="isActive">  
+                                            <ul>
+                                                <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </main>
 

@@ -422,7 +422,7 @@ main .main-contents_question_page .btn {
 
 @media (min-width: 768px) {
   main .main-contents_question_page .main_result h4 {
-    margin: 40px 0 0 30px;
+    margin: 20px 0 0 30px;
   }
 }
 
@@ -458,7 +458,7 @@ main .main-contents_question_page .main_result span {
 
 @media (min-width: 768px) {
   main .main-contents_question_page .main_result span {
-    margin: 70px 0 0 30px;
+    margin: 30px 0 0 30px;
   }
 }
 
@@ -477,7 +477,7 @@ main .main-contents_question_page .main_result #correct {
 
 @media (min-width: 1024px) {
   main .main-contents_question_page .main_result #correct {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
@@ -502,7 +502,7 @@ main .main-contents_question_page .main_result #incorrect {
 
 @media (min-width: 1024px) {
   main .main-contents_question_page .main_result #incorrect {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
@@ -519,8 +519,8 @@ main .main-contents_question_page .main_result #incorrect {
 }
 
 main .main-contents_question_page .main_result .app2 {
-  margin-left: 40px;
-  padding-bottom: 20px;
+  margin-left: 20px;
+  padding-bottom: 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 

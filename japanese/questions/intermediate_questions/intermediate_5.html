@@ -77,20 +77,25 @@
                             <div v-for="(question,index) in this.questions">
                                 <h4 class="card-title error_color">{{ question.question }}</h4>
                                 <span>{{ question.question_translation }}</span>
-                                <ul>
-                                    <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
-                                </ul>
                                 <div v-if="question.answer == answers[index]" id="correct"><span>正解です。</span><br><span>正解は {{ question.answers[question.answer] }}です。</span></div>
                                 <div v-else id="incorrect"><span>不正解です。</span><br><span>正解は {{ question.answers[question.answer] }}です。</span></div>
                                 <br>
-                                <br>
-                                
-                                <hr>
+                                <div class="app2">
+                                    <div class="container">
+                                        <div @click="active" class = "button">翻訳を見る</div>
+                                        <div id="content" v-if="isActive">  
+                                            <ul>
+                                                <li v-for="answer_translation in question.answer_translations">{{ answer_translation }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </main>
 
